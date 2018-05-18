@@ -8,7 +8,7 @@
 from codecs import open
 from setuptools import setup, find_packages
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
@@ -26,7 +26,7 @@ CLASSIFIERS = [
 
 DEPENDENCIES = [
     'msrestazure',
-    'azure-mgmt-hanaonazure==0.1.0'
+    'azure-mgmt-hanaonazure==0.1.1'
 ]
 
 with open('README.rst', 'r', encoding='utf-8') as f:
@@ -42,7 +42,7 @@ setup(
     license='MIT',
     author='Microsoft Corporation',
     author_email='azpycli@microsoft.com',
-    url='https://github.com/PakDLiu/azure-hanaonazure-cli-extension',
+    url='https://github.com/Azure/azure-hanaonazure-cli-extension',
     classifiers=CLASSIFIERS,
     packages=find_packages(),
     package_data={'azext_hanaonazure': ['azext_metadata.json']},

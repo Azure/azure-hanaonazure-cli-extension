@@ -1,5 +1,25 @@
 # azure-hanaonazure-cli-extension
 
+# Install
+
+To install this extension just use the CLI extension add command
+
+```
+az extension add --source $LATES_RELEASE
+```
+
+# Usage
+
+To list all hanainstances for the subscription
+```
+az hanainstance list
+```
+
+To show details about a specific hana instance
+```
+az hanainstance show --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
+```
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

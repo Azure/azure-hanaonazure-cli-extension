@@ -2,20 +2,22 @@
 
 # Install
 
-To install this extension just use the CLI extension add command
+To install this extension just use the CLI extension add command:
 
 ```
-az extension add --source $LATES_RELEASE
+az extension add --source $LATEST_RELEASE
 ```
 
 # Usage
 
-To list all hanainstances for the subscription
+To list all hanainstances for the subscription:
+
 ```
 az hanainstance list
 ```
 
-To show details about a specific hana instance
+To show details about a specific hana instance:
+
 ```
 az hanainstance show --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
 ```

@@ -8,7 +8,7 @@
 from codecs import open
 from setuptools import setup, find_packages
 
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
@@ -26,7 +26,7 @@ CLASSIFIERS = [
 
 DEPENDENCIES = [
     'msrestazure',
-    'azure-mgmt-hanaonazure==0.1.1'
+    'azure-mgmt-hanaonazure==0.2.0'
 ]
 
 with open('README.rst', 'r', encoding='utf-8') as f:

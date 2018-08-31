@@ -35,7 +35,7 @@ with open('HISTORY.rst', 'r', encoding='utf-8') as f:
     HISTORY = f.read()
 
 setup(
-    name='azure-cli-hanaonazure-ext',
+    name='hanaonazure',
     version=VERSION,
     description='Microsoft Azure Command-Line Tools SAP HANA Command Module',
     long_description=README + '\n\n' + HISTORY,

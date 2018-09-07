@@ -20,3 +20,8 @@ helps['hanainstance list'] = """
     type: command
     short-summary: List SAP HANA Instances.
 """
+
+helps['hanainstance restart'] = """
+    type: command
+    short-summary: Restart a SAP HANA Instance.
+"""

@@ -8,7 +8,7 @@
 from codecs import open
 from setuptools import setup, find_packages
 
-VERSION = "0.1.5"
+VERSION = "0.1.6"
 
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
@@ -32,9 +32,9 @@ with open('HISTORY.rst', 'r', encoding='utf-8') as f:
     HISTORY = f.read()
 
 setup(
-    name='hanaonazure',
+    name='sap-hana',
     version=VERSION,
-    description='Microsoft Azure Command-Line Tools SAP HANA Command Module',
+    description='Additional commands for working with SAP HanaOnAzure instances.',
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     author='Microsoft Corporation',

@@ -24,10 +24,7 @@ CLASSIFIERS = [
     'License :: OSI Approved :: MIT License',
 ]
 
-DEPENDENCIES = [
-    'msrestazure',
-    'azure-mgmt-hanaonazure==0.2.1'
-]
+DEPENDENCIES = []
 
 with open('README.rst', 'r', encoding='utf-8') as f:
     README = f.read()

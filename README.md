@@ -22,9 +22,28 @@ To show details about a specific HANA instance:
 az hanainstance show --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
 ```
 
-To update the Tags field of a specific HANA instance:
+To add a key-value pair to the Tags field of a specific HANA instance:
+
 ```
-az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags.newName = newValue
+az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags.newKey=value
+```
+
+To update a key-value pair in the Tags field of a specific HANA instance:
+
+```
+az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags.key=udpatedValue
+```
+
+To delete a key-value pair from the Tags field of a specific HANA instance:
+
+```
+az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --remove tags.key
+```
+
+To delete all key-value pairs in the Tags field of a specific HANA instance:
+
+```
+az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags={}
 ```
 # Contributing
 

@@ -15,6 +15,7 @@ def list_hanainstance(client, resource_group_name=None):
         return client.list()
     return client.list_by_resource_group(resource_group_name)
 
+
 def restart_hanainstance(client, resource_group_name, instance_name):
     # The restart hanainstance REST API is a POST with no body.
     # The HANA RP API requires the Content-Type to be set.
@@ -23,3 +24,7 @@ def restart_hanainstance(client, resource_group_name, instance_name):
     custom_header = {}
     custom_header['Content-Type'] = 'application/json; charset=utf-8'
     return client.restart(resource_group_name, instance_name, custom_header)
+
+
+def update_hanainstance(client, resource_group_name, instance_name, **kwargs):
+    return client.update(resource_group_name, instance_name, kwargs['parameters'].tags)

@@ -10,18 +10,41 @@ az extension add --source $LATEST_RELEASE
 
 # Usage
 
-To list all hanainstances for the subscription:
+To list all HANA instances for the subscription:
 
 ```
 az hanainstance list
 ```
 
-To show details about a specific hana instance:
+To show details about a specific HANA instance:
 
 ```
 az hanainstance show --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
 ```
 
+To add a key-value pair to the Tags field of a specific HANA instance:
+
+```
+az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags.newKey=value
+```
+
+To update a key-value pair in the Tags field of a specific HANA instance:
+
+```
+az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags.key=udpatedValue
+```
+
+To delete a key-value pair from the Tags field of a specific HANA instance:
+
+```
+az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --remove tags.key
+```
+
+To delete all key-value pairs in the Tags field of a specific HANA instance:
+
+```
+az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags={}
+```
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

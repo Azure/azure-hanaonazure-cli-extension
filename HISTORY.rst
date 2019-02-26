@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.3.4 (2019-02-26)
+++++++++++++++++++
+
+- Add hwRevision field to Hana Instance model
+
 0.3.3 (2019-01-30)
 ++++++++++++++++++
 

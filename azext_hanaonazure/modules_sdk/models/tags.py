@@ -20,7 +20,7 @@ class Tags(Model):
     """
 
     _attribute_map = {
-    'tags': {'key': 'tags', 'type': '{str}'},
+        'tags': {'key': 'tags', 'type': '{str}'},
     }
 
     def __init__(self, **kwargs):

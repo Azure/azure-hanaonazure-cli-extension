@@ -30,3 +30,8 @@ helps['hanainstance update'] = """
     type: command
     short-summary: Update the Tags field of a SAP HANA Instance.
 """
+
+helps['hanainstance monitor'] = """
+    type: command
+    short-summary: Add monitoring for a SAP HANA Instance.
+"""

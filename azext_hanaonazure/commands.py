@@ -9,7 +9,6 @@ from azure.cli.core.util import empty_on_404
 from ._client_factory import cf_hanainstance_groups
 from azure.cli.core.commands import CliCommandType
 
-
 def load_command_table(self, _):
     custom_tmpl = 'azext_hanaonazure.custom#{}'
     custom_type = CliCommandType(operations_tmpl=custom_tmpl)

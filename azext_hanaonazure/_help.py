@@ -31,7 +31,7 @@ helps['hanainstance update'] = """
     short-summary: Update the Tags field of a SAP HANA Instance.
 """
 
-helps['hanainstance monitor'] = """
+helps['hanainstance enable-monitoring'] = """
     type: command
     short-summary: Add monitoring for a SAP HANA Instance.
 """

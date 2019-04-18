@@ -49,7 +49,7 @@ az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_IN
 To enable monitoring for a specific HANA instance:
 
 ```
-az hanainstance monitor --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --hana-vnet $HANA_VNET  --hana-hostname $HANA_HOSTNAME --hana-instance-num $HANA_INSTANCENUM --hana-db-username $HANA_DB_USERNAME --hana-db-password $HANA_DB_PW
+az hanainstance enable-monitoring --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --hana-vnet $HANA_VNET  --hana-hostname $HANA_HOSTNAME --hana-instance-num $HANA_INSTANCENUM --hana-db-username $HANA_DB_USERNAME --hana-db-password $HANA_DB_PW
 ```
 
 # Contributing

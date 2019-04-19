@@ -31,7 +31,7 @@ az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_IN
 To update a key-value pair in the Tags field of a specific HANA instance:
 
 ```
-az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags.key=udpatedValue
+az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags.key=updatedValue
 ```
 
 To delete a key-value pair from the Tags field of a specific HANA instance:

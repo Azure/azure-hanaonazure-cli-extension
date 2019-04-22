@@ -13,6 +13,7 @@ def load_arguments(self, _):
         c.argument('resource_group_name', arg_type=resource_group_name_type)
         c.argument('instance_name', options_list=[
                    '--instance-name', '-n'], help="The name of the SAP HANA instance", id_part='name')
+    with self.argument_context('hanainstance monitor') as c:
         c.argument('hana_vnet', options_list=[
                    '--hana-vnet', '-hv'], help="ARM ID of an Azure Vnet with access to the HANA instance.")
         c.argument('hana_hostname', options_list=[

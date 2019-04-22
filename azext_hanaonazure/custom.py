@@ -28,3 +28,17 @@ def restart_hanainstance(client, resource_group_name, instance_name):
 
 def update_hanainstance(client, resource_group_name, instance_name, **kwargs):
     return client.update(resource_group_name, instance_name, kwargs['parameters'].tags)
+
+
+def enable_monitoring_hanainstance(client, resource_group_name, instance_name, hana_vnet, hana_hostname, hana_instance_num, hana_db_username, hana_db_password, hana_mdc=True, hana_database=""):
+    monitoring_details = {
+        "hanaInstanceNum": hana_instance_num,
+        "hanaVnet": hana_vnet,
+        "hanaHostname": hana_hostname,
+        "hanaDbUsername": hana_db_username,
+        "hanaDbPassword": hana_db_password,
+        "dbContainer": "multiple" if hana_mdc else "single"
+    }
+    if hana_database is not None:
+        monitoring_details['hanaDatabase'] = hana_database
+    return client.enable_monitoring(resource_group_name, instance_name, monitoring_details)

@@ -45,9 +45,23 @@ To delete all key-value pairs in the Tags field of a specific HANA instance:
 ```
 az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags={}
 ```
+
+To enable monitoring for a specific HANA instance:
+
+```
+az hanainstance monitor enable \
+    --resource-group $RESOURCE_GROUP \
+    --instance-name $HANA_INSTANCE_NAME \
+    --hana-vnet $HANA_VNET \
+    --hana-hostname $HANA_HOSTNAME \
+    --hana-instance-num $HANA_INSTANCENUM \
+    --hana-db-username $HANA_DB_USERNAME \
+    --hana-db-password $HANA_DB_PW
+```
+
 # Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.microsoft.com.
 

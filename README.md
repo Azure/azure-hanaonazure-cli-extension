@@ -52,9 +52,10 @@ To enable monitoring for a specific HANA instance:
 az hanainstance monitor enable \
     --resource-group $RESOURCE_GROUP \
     --instance-name $HANA_INSTANCE_NAME \
-    --hana-vnet $HANA_VNET \
+    --hana-subnet $HANA_SUBNET \
     --hana-hostname $HANA_HOSTNAME \
-    --hana-instance-num $HANA_INSTANCENUM \
+    --hana-db-name $HANA_DB_NAME \
+    --hana-db-sql-port $HANA_DB_SQL_PORT \
     --hana-db-username $HANA_DB_USERNAME \
     --hana-db-password $HANA_DB_PW
 ```

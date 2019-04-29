@@ -30,15 +30,12 @@ def update_hanainstance(client, resource_group_name, instance_name, **kwargs):
     return client.update(resource_group_name, instance_name, kwargs['parameters'].tags)
 
 
-def enable_monitoring_hanainstance(client, resource_group_name, instance_name, hana_vnet, hana_hostname, hana_instance_num, hana_db_username, hana_db_password, hana_mdc=True, hana_database=""):
+def enable_monitoring_hanainstance(client, resource_group_name, instance_name, hana_subnet, hana_hostname, hana_db_sql_port, hana_db_username, hana_db_password, hana_db_name=""):
     monitoring_details = {
-        "hanaInstanceNum": hana_instance_num,
-        "hanaVnet": hana_vnet,
+        "hanaSubnet": hana_subnet,
         "hanaHostname": hana_hostname,
+        "hanaDbSqlPort": hana_db_sql_port,
         "hanaDbUsername": hana_db_username,
-        "hanaDbPassword": hana_db_password,
-        "dbContainer": "multiple" if hana_mdc else "single"
+        "hanaDbPassword": hana_db_password
     }
-    if hana_database is not None:
-        monitoring_details['hanaDatabase'] = hana_database
     return client.enable_monitoring(resource_group_name, instance_name, monitoring_details)

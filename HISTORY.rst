@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.3.5 (2019-05-21)
+++++++++++++++++++
+
+- Add monitoring capabilities to hana instance
+
 0.3.4 (2019-02-26)
 ++++++++++++++++++
 

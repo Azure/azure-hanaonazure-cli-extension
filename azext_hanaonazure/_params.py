@@ -19,10 +19,10 @@ def load_arguments(self, _):
         c.argument('hana_hostname', options_list=[
                    '--hana-hostname'], help="Hostname of the HANA Instance blade.")
         c.argument('hana_db_name', options_list=[
-                   '--hana-db-name', '-hdb'], help="Name of the database itself.")
+                   '--hana-db-name', '--hdb'], help="Name of the database itself.")
         c.argument('hana_db_sql_port', options_list=[
                    '--hana-db-sql-port'], help="The port number of the tenant DB. Used to connect to the DB.")
         c.argument('hana_db_username', options_list=[
                    '--hana-db-username'], help="Username for the HANA database to login to for monitoring")
         c.argument('hana_db_password', options_list=[
-                   '--hana-db-password', '-hdbpw'], help="Password for the HANA database to login for monitoring")
+                   '--hana-db-password', '--hdbpw'], help="Password for the HANA database to login for monitoring")

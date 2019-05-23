@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.3.7 (2019-05-23)
+++++++++++++++++++
+
+- Fixing the short command options for monitoring
+
 0.3.6 (2019-05-22)
 ++++++++++++++++++
 

@@ -10,6 +10,18 @@ az extension add --source $LATEST_RELEASE
 
 # Usage
 
+To create a new HANA instance:
+
+```
+az hanainstance create \
+    --location $LOCATION \
+    --resource-group $RESOURCE_GROUP \
+    --instance-name $HANA_INSTANCE_NAME \
+    --ssh-public-key $SSH_PUBLIC_KEY \
+    --os-computer-name $COMPUTER_NAME \
+    --ip-address $IP_ADDRESS
+```
+
 To list all HANA instances for the subscription:
 
 ```
@@ -44,6 +56,12 @@ To delete all key-value pairs in the Tags field of a specific HANA instance:
 
 ```
 az hanainstance update --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME --set tags={}
+```
+
+To delete a HANA instance:
+
+```
+az hanainstance delete --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
 ```
 
 To enable monitoring for a specific HANA instance:

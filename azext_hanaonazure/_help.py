@@ -10,11 +10,17 @@ from knack.help_files import helps
 helps['hanainstance'] = """
     type: group
     short-summary: (PREVIEW) Manage Azure SAP HANA Instance.
-    """
+"""
+
+helps['hanainstance create'] = """
+    type: command
+    short-summary: Create a new SAP HANA Instance.
+"""
+
 helps['hanainstance show'] = """
     type: command
     short-summary: Get the details of a SAP HANA Instance.
-    """
+"""
 
 helps['hanainstance list'] = """
     type: command
@@ -29,6 +35,11 @@ helps['hanainstance restart'] = """
 helps['hanainstance update'] = """
     type: command
     short-summary: Update the Tags field of a SAP HANA Instance.
+"""
+
+helps['hanainstance delete'] = """
+    type: command
+    short-summary: Delete a SAP HANA Instance.
 """
 
 helps['hanainstance monitor'] = """

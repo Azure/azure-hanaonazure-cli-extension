@@ -13,8 +13,7 @@ class HanaInstanceCommandsLoader(AzCommandsLoader):
         from azure.cli.core.commands import CliCommandType
         custom_type = CliCommandType(operations_tmpl='azext_hanaonazure.custom#{}')
         super(HanaInstanceCommandsLoader, self).__init__(cli_ctx=cli_ctx,
-                                                      custom_command_type=custom_type,
-                                                      min_profile='2017-03-10-profile')
+                                                         custom_command_type=custom_type)
 
     def load_command_table(self, args):
         from azext_hanaonazure.commands import load_command_table

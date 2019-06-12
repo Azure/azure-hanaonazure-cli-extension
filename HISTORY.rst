@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.3.8 (2019-06-12)
+++++++++++++++++++
+
+- Set the maximum CLI core version to avoid breaking change in CLI core version 2.0.67
+
 0.3.7 (2019-05-23)
 ++++++++++++++++++
 

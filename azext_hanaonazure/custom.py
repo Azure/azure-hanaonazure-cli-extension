@@ -6,6 +6,29 @@
 # pylint: disable=no-self-use,too-many-lines
 
 
+def create_hanainstance(client, location, resource_group_name, instance_name, partner_node_id, ssh_public_key, os_computer_name, ip_address):
+    try:
+        from .modules_sdk.models.os_profile_py3 import OSProfile
+        from .modules_sdk.models.ip_address_py3 import IpAddress
+        from .modules_sdk.models.network_profile_py3 import NetworkProfile
+        from .modules_sdk.models.hana_instance_py3 import HanaInstance
+    except (SyntaxError, ImportError):
+        from .modules_sdk.models.os_profile import OSProfile
+        from .modules_sdk.models.ip_address import IpAddress
+        from .modules_sdk.models.network_profile import NetworkProfile
+        from .modules_sdk.models.hana_instance import HanaInstance
+
+    hana_instance_to_create = HanaInstance(location=location,
+                                           hardware_profile=None,
+                                           storage_profile=None,
+                                           os_profile=OSProfile(computer_name=os_computer_name,
+                                                                ssh_public_key=ssh_public_key),
+                                           network_profile=NetworkProfile(network_interfaces=[IpAddress(ip_address=ip_address)]),
+                                           partner_node_id=partner_node_id)
+    
+    return client.create(resource_group_name, instance_name, hana_instance_to_create)
+
+
 def show_hanainstance(client, resource_group_name, instance_name):
     return client.get(resource_group_name, instance_name)
 
@@ -28,6 +51,10 @@ def restart_hanainstance(client, resource_group_name, instance_name):
 
 def update_hanainstance(client, resource_group_name, instance_name, **kwargs):
     return client.update(resource_group_name, instance_name, kwargs['parameters'].tags)
+
+
+def delete_hanainstance(client, resource_group_name, instance_name):
+    return client.delete(resource_group_name, instance_name)
 
 
 def enable_monitoring_hanainstance(client, resource_group_name, instance_name, hana_subnet, hana_hostname, hana_db_sql_port, hana_db_username, hana_db_password, hana_db_name=""):

@@ -3,6 +3,12 @@
 Release History
 ===============
 
+0.4.0 (2019-06-17)
+++++++++++++++++++
+
+- Add APIs to create and delete a HanaInstance
+- Edit API version format to add parameters necessary for creating a HanaInstance
+
 0.3.9 (2019-06-14)
 ++++++++++++++++++
 

@@ -61,6 +61,7 @@ def enable_monitoring_hanainstance(client, resource_group_name, instance_name, h
     monitoring_details = {
         "hanaSubnet": hana_subnet,
         "hanaHostname": hana_hostname,
+        "hanaDbName": hana_db_name,
         "hanaDbSqlPort": hana_db_sql_port,
         "hanaDbUsername": hana_db_username,
         "hanaDbPassword": hana_db_password

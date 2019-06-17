@@ -6,7 +6,7 @@
 # pylint: disable=no-self-use,too-many-lines
 
 
-def create_hanainstance(client, location, resource_group_name, instance_name, ssh_public_key, os_computer_name, ip_address):
+def create_hanainstance(client, location, resource_group_name, instance_name, partner_node_id, ssh_public_key, os_computer_name, ip_address):
     try:
         from .modules_sdk.models.os_profile_py3 import OSProfile
         from .modules_sdk.models.ip_address_py3 import IpAddress
@@ -23,7 +23,8 @@ def create_hanainstance(client, location, resource_group_name, instance_name, ss
                                            storage_profile=None,
                                            os_profile=OSProfile(computer_name=os_computer_name,
                                                                 ssh_public_key=ssh_public_key),
-                                           network_profile=NetworkProfile(network_interfaces=[IpAddress(ip_address=ip_address)]))
+                                           network_profile=NetworkProfile(network_interfaces=[IpAddress(ip_address=ip_address)]),
+                                           partner_node_id=partner_node_id)
     
     return client.create(resource_group_name, instance_name, hana_instance_to_create)
 

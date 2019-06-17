@@ -17,6 +17,7 @@ az hanainstance create \
     --location $LOCATION \
     --resource-group $RESOURCE_GROUP \
     --instance-name $HANA_INSTANCE_NAME \
+    --partner-node $PARTNER_NODE \
     --ssh-public-key $SSH_PUBLIC_KEY \
     --os-computer-name $COMPUTER_NAME \
     --ip-address $IP_ADDRESS

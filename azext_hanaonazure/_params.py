@@ -16,6 +16,8 @@ def load_arguments(self, _):
         c.argument('resource_group_name', arg_type=resource_group_name_type)
         c.argument('instance_name', options_list=[
                    '--instance-name', '-n'], help="The name of the SAP HANA instance", id_part='name')
+        c.argument('partner_node_id', options_list=[
+                   '--partner-node'], help="ARM ID of a HANA Instance on the network to connect the SAP HANA instance")
         c.argument('ssh_public_key', options_list=[
                    '--ssh-public-key'], help="SSH public key to connect to the SAP HANA instance")
         c.argument('os_computer_name', options_list=[

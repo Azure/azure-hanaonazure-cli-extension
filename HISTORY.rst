@@ -3,7 +3,12 @@
 Release History
 ===============
 
-0.3.10 (2019-06-17)
+0.4.1 (2019-06-17)
+++++++++++++++++++
+
+- Fixing a typo that prevented the hana-db-name from being read
+
+0.4.0 (2019-06-17)
 ++++++++++++++++++
 
 - Add APIs to create and delete a HanaInstance

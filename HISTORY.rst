@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.3.9 (2019-06-14)
+++++++++++++++++++
+
+- Remove use of min_profile to comply with CLI core version 2.0.67
+
 0.3.8 (2019-06-12)
 ++++++++++++++++++
 

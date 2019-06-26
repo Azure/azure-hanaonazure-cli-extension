@@ -10,3 +10,6 @@ def _hana_instance_client_factory(cli_ctx, *_):
 
 def cf_hanainstance_groups(cli_ctx, *_):
     return _hana_instance_client_factory(cli_ctx).hana_instances
+
+def cf_sapmonitor_groups(cli_ctx, *_):
+    return _hana_instance_client_factory(cli_ctx).sap_monitors

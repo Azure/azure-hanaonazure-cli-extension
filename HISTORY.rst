@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.4.2 (2019-06-26)
+++++++++++++++++++
+
+- Added SAP Monitor list, show, create and detete
+
 0.4.1 (2019-06-17)
 ++++++++++++++++++
 

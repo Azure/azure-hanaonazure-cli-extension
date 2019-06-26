@@ -37,3 +37,22 @@ def load_arguments(self, _):
                    '--hana-db-username'], help="Username for the HANA database to login to for monitoring")
         c.argument('hana_db_password', options_list=[
                    '--hana-db-password', '--hdbpw'], help="Password for the HANA database to login for monitoring")
+    with self.argument_context('sapmonitor') as c:
+        c.argument('resource_group_name', arg_type=resource_group_name_type)
+        c.argument('monitor_name', options_list=[
+            '--monitor-name', '-n'], help="The name of the SAP monitor", id_part='name')
+    with self.argument_context('sapmonitor create') as c:
+        c.argument('region', options_list=[
+            '--region'], help="The region to create this SAP monitor on.")
+        c.argument('hana_subnet', options_list=[
+            '--hana-subnet', '--hdbsn'], help="ARM ID of an Azure Subnet with access to the HANA instance.")
+        c.argument('hana_hostname', options_list=[
+            '--hana-hostname', '--hdbhn'], help="Hostname of the HANA Instance blade.")
+        c.argument('hana_db_name', options_list=[
+            '--hana-db-name', '--hdb'], help="Name of the database itself.")
+        c.argument('hana_db_sql_port', options_list=[
+            '--hana-db-sql-port', '--hdbp'], help="The port number of the tenant DB. Used to connect to the DB.")
+        c.argument('hana_db_username', options_list=[
+            '--hana-db-username', '--hdbun'], help="Username for the HANA database to login to for monitoring")
+        c.argument('hana_db_password', options_list=[
+            '--hana-db-password', '--hdbpw'], help="Password for the HANA database to login for monitoring")

@@ -51,3 +51,23 @@ helps['hanainstance monitor enable'] = """
     type: command
     short-summary: Enable monitoring for a SAP HANA Instance.
 """
+
+helps['sapmonitor list'] = """
+    type: command
+    short-summary: List SAP Monitors.
+"""
+
+helps['sapmonitor show'] = """
+    type: command
+    short-summary: Get the details of a SAP Monitor.
+"""
+
+helps['sapmonitor create'] = """
+    type: command
+    short-summary: Create a SAP Monitor.
+"""
+
+helps['sapmonitor delete'] = """
+    type: command
+    short-summary: Delete a SAP Monitor.
+"""

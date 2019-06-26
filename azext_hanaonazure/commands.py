@@ -6,7 +6,7 @@
 # pylint: disable=line-too-long
 
 from azure.cli.core.util import empty_on_404
-from ._client_factory import cf_hanainstance_groups
+from ._client_factory import (cf_hanainstance_groups, cf_sapmonitor_groups)
 from azure.cli.core.commands import CliCommandType
 
 def load_command_table(self, _):
@@ -25,3 +25,9 @@ def load_command_table(self, _):
 
     with self.command_group('hanainstance monitor', client_factory=cf_hanainstance_groups) as g:
         g.custom_command('enable', 'enable_monitoring_hanainstance')
+
+    with self.command_group('sapmonitor', client_factory=cf_sapmonitor_groups) as g:
+        g.custom_command('list', 'list_sapmonitor')
+        g.custom_command('show', 'show_sapmonitor', exception_handler=empty_on_404)
+        g.custom_command('create', 'create_sapmonitor')
+        g.custom_command('delete', 'delete_sapmonitor')

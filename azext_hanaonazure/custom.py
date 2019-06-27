@@ -67,3 +67,24 @@ def enable_monitoring_hanainstance(client, resource_group_name, instance_name, h
         "hanaDbPassword": hana_db_password
     }
     return client.enable_monitoring(resource_group_name, instance_name, monitoring_details)
+
+def list_sapmonitor(client):
+    return client.list()
+
+def show_sapmonitor(client, resource_group_name, monitor_name):
+    return client.get(resource_group_name, monitor_name)
+
+def create_sapmonitor(client, resource_group_name, monitor_name, region, hana_subnet, hana_hostname, hana_db_sql_port, hana_db_username, hana_db_password, hana_db_name):
+    monitoring_details = {
+        "location": region,
+        "hanaSubnet": hana_subnet,
+        "hanaHostname": hana_hostname,
+        "hanaDbName": hana_db_name,
+        "hanaDbSqlPort": hana_db_sql_port,
+        "hanaDbUsername": hana_db_username,
+        "hanaDbPassword": hana_db_password
+    }
+    return client.create(resource_group_name, monitor_name, monitoring_details)
+
+def delete_sapmonitor(client, resource_group_name, monitor_name):
+    return client.delete(resource_group_name, monitor_name)

@@ -52,6 +52,11 @@ helps['hanainstance monitor enable'] = """
     short-summary: Enable monitoring for a SAP HANA Instance.
 """
 
+helps['sapmonitor'] = """
+    type: group
+    short-summary: (PREVIEW) Manage Azure SAP Monitor.
+"""
+
 helps['sapmonitor list'] = """
     type: command
     short-summary: List SAP Monitors.

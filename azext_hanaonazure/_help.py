@@ -32,6 +32,16 @@ helps['hanainstance restart'] = """
     short-summary: Restart a SAP HANA Instance.
 """
 
+helps['hanainstance start'] = """
+    type: command
+    short-summary: Start a SAP HANA Instance.
+"""
+
+helps['hanainstance shutdown'] = """
+    type: command
+    short-summary: Shutdown a SAP HANA Instance.
+"""
+
 helps['hanainstance update'] = """
     type: command
     short-summary: Update the Tags field of a SAP HANA Instance.

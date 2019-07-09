@@ -79,12 +79,6 @@ az hanainstance monitor enable \
     --hana-db-password $HANA_DB_PW
 ```
 
-To restart a specific HANA instance:
-
-```
-az hanainstance restart --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
-```
-
 To start a specific HANA instance:
 
 ```

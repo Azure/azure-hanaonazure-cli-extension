@@ -19,6 +19,8 @@ def load_command_table(self, _):
         g.custom_command('show', 'show_hanainstance',
                          exception_handler=empty_on_404)
         g.custom_command('restart', 'restart_hanainstance')
+        g.custom_command('start', 'start_hanainstance')
+        g.custom_command('shutdown', 'shutdown_hanainstance')
         g.generic_update_command('update', getter_name='show_hanainstance', setter_name='update_hanainstance',
                                  command_type=custom_type, supports_no_wait=True)
         g.custom_command('delete', 'delete_hanainstance')        

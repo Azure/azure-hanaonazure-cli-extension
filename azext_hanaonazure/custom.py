@@ -8,15 +8,15 @@
 
 def create_hanainstance(client, location, resource_group_name, instance_name, partner_node_id, ssh_public_key, os_computer_name, ip_address):
     try:
-        from .modules_sdk.models.os_profile_py3 import OSProfile
-        from .modules_sdk.models.ip_address_py3 import IpAddress
-        from .modules_sdk.models.network_profile_py3 import NetworkProfile
-        from .modules_sdk.models.hana_instance_py3 import HanaInstance
+        from .modules_sdk.models_py3 import OSProfile
+        from .modules_sdk.models_py3 import IpAddress
+        from .modules_sdk.models_py3 import NetworkProfile
+        from .modules_sdk.models_py3 import HanaInstance
     except (SyntaxError, ImportError):
-        from .modules_sdk.models.os_profile import OSProfile
-        from .modules_sdk.models.ip_address import IpAddress
-        from .modules_sdk.models.network_profile import NetworkProfile
-        from .modules_sdk.models.hana_instance import HanaInstance
+        from .modules_sdk.models import OSProfile
+        from .modules_sdk.models import IpAddress
+        from .modules_sdk.models import NetworkProfile
+        from .modules_sdk.models import HanaInstance
 
     hana_instance_to_create = HanaInstance(location=location,
                                            hardware_profile=None,
@@ -25,7 +25,7 @@ def create_hanainstance(client, location, resource_group_name, instance_name, pa
                                                                 ssh_public_key=ssh_public_key),
                                            network_profile=NetworkProfile(network_interfaces=[IpAddress(ip_address=ip_address)]),
                                            partner_node_id=partner_node_id)
-    
+
     return client.create(resource_group_name, instance_name, hana_instance_to_create)
 
 

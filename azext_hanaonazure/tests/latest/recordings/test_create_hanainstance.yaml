@@ -1,0 +1,789 @@
+interactions:
+- request:
+    body: '{"location": "japaneast", "properties": {"osProfile": {"computerName":
+      "Test02", "sshPublicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCbIg1guRHbI0lV11wWDt1r2cUdcNd27CJsg+SfgC7miZeubtwUhbsPdhMQsfDyhOWHq1+ZL0M+nJZV63d/1dhmhtgyOqejUwrPlzKhydsbrsdUor+JmNJDdW01v7BXHyuymT8G4s09jCasNOwiufbP/qp72ruu0bIA1nySsvlf9pCQAuFkAnVnf/rFhUlOkhtRpwcq8SUNY2zRHR/EKb/4NWY1JzR4sa3q2fWIJdrrX0DvLoa5g9bIEd4Df79ba7v+yiUBOS0zT2ll+z4g9izHK3EO5d8hL4jYxcjKs+wcslSYRWrascfscLgMlMGh0CdKeNTDjHpGPncaf3Z+FwwwjWeuiNBxv7bJo13/8B/098KlVDl4GZqsoBCEjPyJfV6hO0y/LkRGkk7oHWKgeWAfKtfLItRp00eZ4fcJNK9kCaSMmEugoZWcI7NGbZXzqFWqbpRI7NcDP9+WIQ+i9U5vqWsqd/zng4kbuAJ6UuKqIzB0upYrLShfQE3SAck8oaLhJqqq56VfDuASNpJKidV+zq27HfSBmbXnkR/5AK337dc3MXKJypoK/QPMLKUAP5XLPbs+NddJQV7EZXd29DLgp+fRIg3edpKdO7ZErWhv7d+3Kws+e1Y+ypmR2WIVSwVyBEUfgv2C8Ts9gnTF4pNcEY/S2aBicz5Ew2+jdyGNQQ==
+      test@microsoft.com"}, "networkProfile": {"networkInterfaces": [{"ipAddress":
+      "10.19.17.52"}]}, "partnerNodeId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.HanaOnAzure/hanaInstances/Test01"}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1071'
+      Content-Type:
+      - application/json; charset=utf-8
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+      accept-language:
+      - en-US
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.HanaOnAzure/hanaInstances/Test02?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.HanaOnAzure/hanaInstances/Test02\",\n
+        \ \"location\": \"japaneast\",\n  \"name\": \"Test02\",\n  \"tags\": {},\n
+        \ \"type\": \"Microsoft.HanaOnAzure/hanaInstances\",\n  \"properties\": {\n
+        \  \"hanaInstanceId\": \"\",\n   \"hwRevision\": \"\",\n   \"hardwareProfile\":
+        {\n    \"hardwareType\": \"Cisco_UCS\",\n    \"hanaInstanceSize\": \"S192\"\n
+        \  },\n   \"networkProfile\": {\n    \"networkInterfaces\": [\n     {\n      \"ipAddress\":
+        \"10.19.17.52\"\n     }\n    ]\n   },\n   \"osProfile\": {\n    \"computerName\":
+        \"Test02\",\n    \"sshPublicKey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCbIg1guRHbI0lV11wWDt1r2cUdcNd27CJsg+SfgC7miZeubtwUhbsPdhMQsfDyhOWHq1+ZL0M+nJZV63d/1dhmhtgyOqejUwrPlzKhydsbrsdUor+JmNJDdW01v7BXHyuymT8G4s09jCasNOwiufbP/qp72ruu0bIA1nySsvlf9pCQAuFkAnVnf/rFhUlOkhtRpwcq8SUNY2zRHR/EKb/4NWY1JzR4sa3q2fWIJdrrX0DvLoa5g9bIEd4Df79ba7v+yiUBOS0zT2ll+z4g9izHK3EO5d8hL4jYxcjKs+wcslSYRWrascfscLgMlMGh0CdKeNTDjHpGPncaf3Z+FwwwjWeuiNBxv7bJo13/8B/098KlVDl4GZqsoBCEjPyJfV6hO0y/LkRGkk7oHWKgeWAfKtfLItRp00eZ4fcJNK9kCaSMmEugoZWcI7NGbZXzqFWqbpRI7NcDP9+WIQ+i9U5vqWsqd/zng4kbuAJ6UuKqIzB0upYrLShfQE3SAck8oaLhJqqq56VfDuASNpJKidV+zq27HfSBmbXnkR/5AK337dc3MXKJypoK/QPMLKUAP5XLPbs+NddJQV7EZXd29DLgp+fRIg3edpKdO7ZErWhv7d+3Kws+e1Y+ypmR2WIVSwVyBEUfgv2C8Ts9gnTF4pNcEY/S2aBicz5Ew2+jdyGNQQ==
+        test@microsoft.com\"\n   },\n   \"partnerNodeId\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.HanaOnAzure/hanaInstances/Test01\",\n
+        \  \"provisioningState\": \"Accepted\"\n  }\n }"
+    headers:
+      azure-asyncoperation:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      cache-control:
+      - no-cache
+      content-length:
+      - '1536'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 17:57:09 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1199'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 17:57:40 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 17:58:11 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 17:58:41 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 17:59:13 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 17:59:43 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:00:14 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:00:45 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:01:16 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:01:47 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:02:16 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:02:48 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:03:18 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"InProgress\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"error\":
+        {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:03:48 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japaneast/operationsStatus/97d51e9f-e41e-46c5-9ae3-0d98477b3917?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"97d51e9f-e41e-46c5-9ae3-0d98477b3917\",\n  \"status\":
+        \"Succeeded\",\n  \"startTime\": \"2019-07-11T17:57:10.0613738Z\",\n  \"endTime\":
+        \"2019-07-11T18:04:12Z\",\n  \"error\": {\n   \"code\": \"\",\n   \"message\":
+        \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '212'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:04:19 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - hanainstance create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -n --ip-address -l --os-computer-name --partner-node-id -g --ssh-public-key
+      User-Agent:
+      - python/3.7.3 (Darwin-18.6.0-x86_64-i386-64bit) msrest/0.6.8 msrest_azure/0.6.1
+        azure-mgmt-hanaonazure/0.7.1 Azure-SDK-For-Python AZURECLI/2.0.68
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.HanaOnAzure/hanaInstances/Test02?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.HanaOnAzure/hanaInstances/Test02\",\n
+        \ \"location\": \"japaneast\",\n  \"name\": \"Test02\",\n  \"tags\": {},\n
+        \ \"type\": \"Microsoft.HanaOnAzure/hanaInstances\",\n  \"properties\": {\n
+        \  \"hanaInstanceId\": \"8cc54054-403d-466c-9713-1396daae1cdd\",\n   \"powerState\":
+        \"unknown\",\n   \"hwRevision\": \"Rev 3\",\n   \"hardwareProfile\": {\n    \"hardwareType\":
+        \"Cisco_UCS\",\n    \"hanaInstanceSize\": \"S192\"\n   },\n   \"networkProfile\":
+        {\n    \"networkInterfaces\": [\n     {\n      \"ipAddress\": \"10.19.17.52\"\n
+        \    }\n    ],\n    \"circuitId\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/T520_Test-TYO-Circuits/providers/Microsoft.Network/expressRouteCircuits/T520_Test-TYO01-10Gb\"\n
+        \  },\n   \"storageProfile\": {\n    \"nfsIpAddress\": \"10.180.211.51\"\n
+        \  },\n   \"osProfile\": {\n    \"computerName\": \"Test02\",\n    \"sshPublicKey\":
+        \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCbIg1guRHbI0lV11wWDt1r2cUdcNd27CJsg+SfgC7miZeubtwUhbsPdhMQsfDyhOWHq1+ZL0M+nJZV63d/1dhmhtgyOqejUwrPlzKhydsbrsdUor+JmNJDdW01v7BXHyuymT8G4s09jCasNOwiufbP/qp72ruu0bIA1nySsvlf9pCQAuFkAnVnf/rFhUlOkhtRpwcq8SUNY2zRHR/EKb/4NWY1JzR4sa3q2fWIJdrrX0DvLoa5g9bIEd4Df79ba7v+yiUBOS0zT2ll+z4g9izHK3EO5d8hL4jYxcjKs+wcslSYRWrascfscLgMlMGh0CdKeNTDjHpGPncaf3Z+FwwwjWeuiNBxv7bJo13/8B/098KlVDl4GZqsoBCEjPyJfV6hO0y/LkRGkk7oHWKgeWAfKtfLItRp00eZ4fcJNK9kCaSMmEugoZWcI7NGbZXzqFWqbpRI7NcDP9+WIQ+i9U5vqWsqd/zng4kbuAJ6UuKqIzB0upYrLShfQE3SAck8oaLhJqqq56VfDuASNpJKidV+zq27HfSBmbXnkR/5AK337dc3MXKJypoK/QPMLKUAP5XLPbs+NddJQV7EZXd29DLgp+fRIg3edpKdO7ZErWhv7d+3Kws+e1Y+ypmR2WIVSwVyBEUfgv2C8Ts9gnTF4pNcEY/S2aBicz5Ew2+jdyGNQQ==
+        test@microsoft.com\"\n   },\n   \"partnerNodeId\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.HanaOnAzure/hanaInstances/Test01\",\n
+        \  \"provisioningState\": \"Succeeded\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '1851'
+      content-type:
+      - application/json
+      date:
+      - Thu, 11 Jul 2019 18:04:20 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -8,6 +8,7 @@
 import re
 
 keyvault_id_format = '/subscriptions/([\w\d-]+)/resourceGroups/([\w\d-]+)/providers/Microsoft.KeyVault/vaults/([\w\d-]+)'
+arm_resource_id_format = '/subscriptions/{}/resourceGroups/{}/providers/Microsoft.HanaOnAzure/sapMonitors/{}'
 
 def create_hanainstance(client, location, resource_group_name, instance_name, partner_node_id, ssh_public_key, os_computer_name, ip_address):
     try:
@@ -129,12 +130,14 @@ def create_sapmonitor(
 
         # Create MSI
         msi_client = _msi_client_factory(cmd.cli_ctx)
-        msi = msi_client.user_assigned_identities.create_or_update(resource_group_name, 'sapmon-msi', region)
+        arm_resource_id = arm_resource_id_format.format(msi_client.config.subscription_id, resource_group_name, monitor_name)
+        sapmon_id = 'sapmon{}'.format(fnv32a(arm_resource_id))
+        msi = msi_client.user_assigned_identities.create_or_update(resource_group_name, sapmon_id, region)
 
         # Extract Key Vault information
         match = re.search(keyvault_id_format, key_vault_id)
         if not match:
-            raise ValueError("key_vault_id is of incorrect format. The ID should start with /subscription/")
+            raise ValueError("key_vault_id is of incorrect format. The ID should start with /subscriptions/")
 
         kv_subscription_id = match.group(1)
         kv_resource_group = match.group(2)
@@ -162,3 +165,12 @@ def create_sapmonitor(
 
 def delete_sapmonitor(client, resource_group_name, monitor_name):
     return client.delete(resource_group_name, monitor_name)
+
+def fnv32a(str):
+    hval = 0x811c9dc5
+    fnv_32_prime = 0x01000193
+    uint32_max = 2 ** 32
+    for s in str:
+        hval = hval ^ ord(s)
+        hval = (hval * fnv_32_prime) % uint32_max
+    return hval

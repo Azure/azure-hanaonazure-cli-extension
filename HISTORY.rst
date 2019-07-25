@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.5.2 (2019-07-24)
+++++++++++++++++++
+
+- sapmonitor create will now accept key vault as well
+
 0.5.1 (2019-07-05)
 ++++++++++++++++++
 

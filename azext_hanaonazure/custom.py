@@ -131,7 +131,7 @@ def create_sapmonitor(
         # Create MSI
         msi_client = _msi_client_factory(cmd.cli_ctx)
         arm_resource_id = arm_resource_id_format.format(msi_client.config.subscription_id, resource_group_name, monitor_name)
-        sapmon_id = 'sapmon{}'.format(fnv32a(arm_resource_id))
+        sapmon_id = 'sapmon-csi-{}'.format(hash(arm_resource_id))
         msi = msi_client.user_assigned_identities.create_or_update(resource_group_name, sapmon_id, region)
 
         # Extract Key Vault information
@@ -166,7 +166,7 @@ def create_sapmonitor(
 def delete_sapmonitor(client, resource_group_name, monitor_name):
     return client.delete(resource_group_name, monitor_name)
 
-def fnv32a(str):
+def hash(str):
     hval = 0x811c9dc5
     fnv_32_prime = 0x01000193
     uint32_max = 2 ** 32

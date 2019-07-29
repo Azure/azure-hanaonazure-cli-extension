@@ -37,6 +37,10 @@ def load_arguments(self, _):
                    '--hana-db-username'], help="Username for the HANA database to login to for monitoring")
         c.argument('hana_db_password', options_list=[
                    '--hana-db-password', '--hdbpw'], help="Password for the HANA database to login for monitoring")
+        c.argument('hana_db_password_key_vault_url', options_list=[
+            '--hana-db-password-key-vault-url', '--hdpkvu'], help="URL to the KeyVault secret that contains the HANA credentials")
+        c.argument('key_vault_id', options_list=[
+            '--key-vault-id', '--kvi'], help="Key Vault ID containing the HANA credentials")
     with self.argument_context('sapmonitor') as c:
         c.argument('resource_group_name', arg_type=resource_group_name_type)
         c.argument('monitor_name', options_list=[

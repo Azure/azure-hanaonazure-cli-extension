@@ -1,0 +1,795 @@
+interactions:
+- request:
+    body: '{"properties": {"hanaDbPassword": "password1", "hanaDbSqlPort": 30015, "hanaDbName":
+      "SYSTEMDB", "hanaHostname": "10.0.0.6", "hanaSubnet": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sapmonitor-lab/providers/Microsoft.Network/virtualNetworks/SML-vnet/subnets/hdb-subnet",
+      "hanaDbUsername": "admin"}, "location": "japanwest"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '348'
+      Content-Type:
+      - application/json; charset=utf-8
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+      accept-language:
+      - en-US
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sapmonitor-lab/providers/Microsoft.HanaOnAzure/sapMonitors/donaliuTesting?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sapmonitor-lab/providers/Microsoft.HanaOnAzure/sapMonitors/donaliuTesting\"\
+        ,\n  \"location\": \"japanwest\",\n  \"name\": \"donaliuTesting\",\n  \"tags\"\
+        : {},\n  \"type\": \"Microsoft.HanaOnAzure/sapMonitors\",\n  \"properties\"\
+        : {\n   \"hanaSubnet\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sapmonitor-lab/providers/Microsoft.Network/virtualNetworks/SML-vnet/subnets/hdb-subnet\"\
+        ,\n   \"hanaHostname\": \"10.0.0.6\",\n   \"hanaDbName\": \"SYSTEMDB\",\n\
+        \   \"hanaDbSqlPort\": 30015,\n   \"hanaDbUsername\": \"admin\",\n   \"provisioningState\"\
+        : \"Accepted\"\n  }\n }"
+    headers:
+      azure-asyncoperation:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      cache-control:
+      - no-cache
+      content-length:
+      - '621'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:46:48 GMT
+      expires:
+      - '-1'
+      location:
+      - /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sapmonitor-lab/providers/Microsoft.HanaOnAzure/sapMonitors/donaliuTesting?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1199'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:47:19 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:47:49 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:48:20 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:48:49 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:49:20 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:49:50 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:50:20 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:50:51 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:51:21 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:51:51 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:52:21 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:52:52 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"InProgress\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        error\": {\n   \"code\": \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '176'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:53:22 GMT
+      expires:
+      - '-1'
+      location:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.HanaOnAzure/locations/japanwest/operationsStatus/1470de31-b9b3-4b7d-a982-b7092aed8b1e?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"name\": \"1470de31-b9b3-4b7d-a982-b7092aed8b1e\",\n  \"status\"\
+        : \"Succeeded\",\n  \"startTime\": \"2019-07-26T17:46:48.5897153Z\",\n  \"\
+        endTime\": \"2019-07-26T17:53:53.138045Z\",\n  \"error\": {\n   \"code\":\
+        \ \"\",\n   \"message\": \"\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '219'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:53:53 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - sapmonitor create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - --region --resource-group --monitor-name --hana-subnet --hana-hostname --hana-db-sql-port
+        --hana-db-name --hana-db-username --hana-db-password
+      User-Agent:
+      - python/3.5.2 (Linux-4.4.0-150-generic-x86_64-with-Ubuntu-16.04-xenial) msrest/0.6.9
+        msrest_azure/0.6.1 azure-mgmt-hanaonazure/0.8.0 Azure-SDK-For-Python AZURECLI/2.0.69
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sapmonitor-lab/providers/Microsoft.HanaOnAzure/sapMonitors/donaliuTesting?api-version=2017-11-03-preview
+  response:
+    body:
+      string: "{\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sapmonitor-lab/providers/Microsoft.HanaOnAzure/sapMonitors/donaliuTesting\"\
+        ,\n  \"location\": \"japanwest\",\n  \"name\": \"donaliuTesting\",\n  \"tags\"\
+        : {},\n  \"type\": \"Microsoft.HanaOnAzure/sapMonitors\",\n  \"properties\"\
+        : {\n   \"hanaSubnet\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sapmonitor-lab/providers/Microsoft.Network/virtualNetworks/SML-vnet/subnets/hdb-subnet\"\
+        ,\n   \"hanaHostname\": \"10.0.0.6\",\n   \"hanaDbName\": \"SYSTEMDB\",\n\
+        \   \"hanaDbSqlPort\": 30015,\n   \"hanaDbUsername\": \"admin\",\n   \"provisioningState\"\
+        : \"Succeeded\"\n  }\n }"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '622'
+      content-type:
+      - application/json
+      date:
+      - Fri, 26 Jul 2019 17:53:53 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - nginx/1.15.10
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1

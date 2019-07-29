@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.5.2 (2019-07-24)
+++++++++++++++++++
+
+- sapmonitor create will also accept keyvault url as credentials
+
 0.5.1 (2019-07-05)
 ++++++++++++++++++
 

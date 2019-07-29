@@ -5,6 +5,10 @@
 
 # pylint: disable=no-self-use,too-many-lines
 
+import re
+
+keyvault_id_format = '/subscriptions/([\w\d-]+)/resourceGroups/([\w\d-]+)/providers/Microsoft.KeyVault/vaults/([\w\d-]+)'
+arm_resource_id_format = '/subscriptions/{}/resourceGroups/{}/providers/Microsoft.HanaOnAzure/sapMonitors/{}'
 
 def create_hanainstance(client, location, resource_group_name, instance_name, partner_node_id, ssh_public_key, os_computer_name, ip_address):
     try:
@@ -92,17 +96,81 @@ def list_sapmonitor(client):
 def show_sapmonitor(client, resource_group_name, monitor_name):
     return client.get(resource_group_name, monitor_name)
 
-def create_sapmonitor(client, resource_group_name, monitor_name, region, hana_subnet, hana_hostname, hana_db_sql_port, hana_db_username, hana_db_password, hana_db_name):
+def create_sapmonitor(
+        cmd,
+        client,
+        resource_group_name,
+        monitor_name,
+        region,
+        hana_subnet,
+        hana_hostname,
+        hana_db_sql_port,
+        hana_db_username,
+        hana_db_name,
+        hana_db_password=None,
+        hana_db_password_key_vault_url=None,
+        key_vault_id=None):
+
     monitoring_details = {
         "location": region,
         "hanaSubnet": hana_subnet,
         "hanaHostname": hana_hostname,
         "hanaDbName": hana_db_name,
         "hanaDbSqlPort": hana_db_sql_port,
-        "hanaDbUsername": hana_db_username,
-        "hanaDbPassword": hana_db_password
+        "hanaDbUsername": hana_db_username
     }
+
+    if hana_db_password is not None:
+        # Password was passed in
+        monitoring_details.update({"hanaDbPassword": hana_db_password})
+    elif hana_db_password_key_vault_url is not None and key_vault_id is not None:
+        # Keyvault URL was passed in
+        from ._client_factory import (_msi_client_factory, _keyvault_client_factory)
+        from azure.mgmt.keyvault.v2018_02_14.models import (VaultAccessPolicyProperties, AccessPolicyEntry, Permissions, SecretPermissions)
+
+        # Create MSI
+        msi_client = _msi_client_factory(cmd.cli_ctx)
+        arm_resource_id = arm_resource_id_format.format(msi_client.config.subscription_id, resource_group_name, monitor_name)
+        sapmon_id = 'sapmon-csi-{}'.format(hash(arm_resource_id))
+        msi = msi_client.user_assigned_identities.create_or_update(resource_group_name, sapmon_id, region)
+
+        # Extract Key Vault information
+        match = re.search(keyvault_id_format, key_vault_id)
+        if not match:
+            raise ValueError("key_vault_id is of incorrect format. The ID should start with /subscriptions/")
+
+        kv_subscription_id = match.group(1)
+        kv_resource_group = match.group(2)
+        kv_resource_name = match.group(3)
+        kv_client = _keyvault_client_factory(cmd.cli_ctx, kv_subscription_id)
+
+        # Get Key Vault Tenant ID
+        kv = kv_client.vaults.get(kv_resource_group, kv_resource_name)
+
+        # Add MSI to Key Vault
+        secretPermissions = [SecretPermissions("get")]
+        accessPolicyEntries = [AccessPolicyEntry(tenant_id=kv.properties.tenant_id, object_id=msi.principal_id, permissions=Permissions(secrets=secretPermissions))]
+        properties = VaultAccessPolicyProperties(access_policies=accessPolicyEntries)
+        kv_client = _keyvault_client_factory(cmd.cli_ctx, kv_subscription_id)
+        kv_client.vaults.update_access_policy(kv_resource_group,kv_resource_name, 'add', properties)
+
+        monitoring_details.update({
+            "hanaDbPasswordKeyVaultUrl": hana_db_password_key_vault_url,
+            "hanaDbCredentialsMsiId": msi.id
+        })
+    else:
+        raise ValueError("Either --hana-db-password or both --hana-db-password-key-vault-url and --key-vault-id.")
+
     return client.create(resource_group_name, monitor_name, monitoring_details)
 
 def delete_sapmonitor(client, resource_group_name, monitor_name):
     return client.delete(resource_group_name, monitor_name)
+
+def hash(str):
+    hval = 0x811c9dc5
+    fnv_32_prime = 0x01000193
+    uint32_max = 2 ** 32
+    for s in str:
+        hval = hval ^ ord(s)
+        hval = (hval * fnv_32_prime) % uint32_max
+    return hval

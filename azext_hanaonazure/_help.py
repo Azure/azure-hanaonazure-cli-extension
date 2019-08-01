@@ -52,16 +52,6 @@ helps['hanainstance delete'] = """
     short-summary: Delete a SAP HANA Instance.
 """
 
-helps['hanainstance monitor'] = """
-    type: group
-    short-summary: Manage monitoring for a SAP HANA Instance.
-"""
-
-helps['hanainstance monitor enable'] = """
-    type: command
-    short-summary: Enable monitoring for a SAP HANA Instance.
-"""
-
 helps['sapmonitor'] = """
     type: group
     short-summary: (PREVIEW) Manage Azure SAP Monitor.

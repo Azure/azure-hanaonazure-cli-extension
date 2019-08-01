@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.5.3 (2019-08-01)
+++++++++++++++++++
+
+- Removing enable monitor on hana instance
+
 0.5.2 (2019-07-24)
 ++++++++++++++++++
 

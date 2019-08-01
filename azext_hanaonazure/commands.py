@@ -23,10 +23,7 @@ def load_command_table(self, _):
         g.custom_command('shutdown', 'shutdown_hanainstance')
         g.generic_update_command('update', getter_name='show_hanainstance', setter_name='update_hanainstance',
                                  command_type=custom_type, supports_no_wait=True)
-        g.custom_command('delete', 'delete_hanainstance')        
-
-    with self.command_group('hanainstance monitor', client_factory=cf_hanainstance_groups) as g:
-        g.custom_command('enable', 'enable_monitoring_hanainstance')
+        g.custom_command('delete', 'delete_hanainstance')
 
     with self.command_group('sapmonitor', client_factory=cf_sapmonitor_groups) as g:
         g.custom_command('list', 'list_sapmonitor')

@@ -65,20 +65,6 @@ To delete a HANA instance:
 az hanainstance delete --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
 ```
 
-To enable monitoring for a specific HANA instance:
-
-```
-az hanainstance monitor enable \
-    --resource-group $RESOURCE_GROUP \
-    --instance-name $HANA_INSTANCE_NAME \
-    --hana-subnet $HANA_SUBNET \
-    --hana-hostname $HANA_HOSTNAME \
-    --hana-db-name $HANA_DB_NAME \
-    --hana-db-sql-port $HANA_DB_SQL_PORT \
-    --hana-db-username $HANA_DB_USERNAME \
-    --hana-db-password $HANA_DB_PW
-```
-
 To start a specific HANA instance:
 
 ```

@@ -489,9 +489,11 @@ class SapMonitor(Resource):
     :type hana_db_username: str
     :param hana_db_password: Database password of the HANA instance.
     :type hana_db_password: str
-    :param hana_db_password_key_vault_url: URL to the KeyVault secret that contains the HANA credentials.
+    :param hana_db_password_key_vault_url: KeyVault URL link to the password
+     for the HANA database.
     :type hana_db_password_key_vault_url: str
-    :param hana_db_credentials_msi_id: Key Vault ID containing that contains the HANA credentials.
+    :param hana_db_credentials_msi_id: MSI ID passed by customer which has
+     access to customer's KeyVault and to be assigned to the Collector VM.
     :type hana_db_credentials_msi_id: str
     :param key_vault_id: Key Vault ID containing customer's HANA credentials.
     :type key_vault_id: str

@@ -79,18 +79,6 @@ def update_hanainstance(client, resource_group_name, instance_name, **kwargs):
 def delete_hanainstance(client, resource_group_name, instance_name):
     return client.delete(resource_group_name, instance_name)
 
-
-def enable_monitoring_hanainstance(client, resource_group_name, instance_name, hana_subnet, hana_hostname, hana_db_sql_port, hana_db_username, hana_db_password, hana_db_name=""):
-    monitoring_details = {
-        "hanaSubnet": hana_subnet,
-        "hanaHostname": hana_hostname,
-        "hanaDbName": hana_db_name,
-        "hanaDbSqlPort": hana_db_sql_port,
-        "hanaDbUsername": hana_db_username,
-        "hanaDbPassword": hana_db_password
-    }
-    return client.enable_monitoring(resource_group_name, instance_name, monitoring_details)
-
 def list_sapmonitor(client):
     return client.list()
 

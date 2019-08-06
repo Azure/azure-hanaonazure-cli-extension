@@ -132,7 +132,7 @@ def create_sapmonitor(
         # Create MSI
         msi_client = _msi_client_factory(cmd.cli_ctx)
         csi_name = get_csi_name(msi_client.config.subscription_id, resource_group_name, monitor_name)
-        msi = msi_client.user_assigned_identities.create_or_update(resource_group_name, csi_name, region)
+        csi = msi_client.user_assigned_identities.create_or_update(resource_group_name, csi_name, region)
 
         # Extract Key Vault information
         match = re.search(keyvault_id_format, key_vault_id)
@@ -149,13 +149,13 @@ def create_sapmonitor(
 
         # Add MSI to Key Vault
         secretPermissions = [SecretPermissions("get")]
-        accessPolicyEntries = [AccessPolicyEntry(tenant_id=kv.properties.tenant_id, object_id=msi.principal_id, permissions=Permissions(secrets=secretPermissions))]
+        accessPolicyEntries = [AccessPolicyEntry(tenant_id=kv.properties.tenant_id, object_id=csi.principal_id, permissions=Permissions(secrets=secretPermissions))]
         properties = VaultAccessPolicyProperties(access_policies=accessPolicyEntries)
         kv_client.vaults.update_access_policy(kv_resource_group,kv_resource_name, 'add', properties)
 
         monitoring_details.update({
             "hanaDbPasswordKeyVaultUrl": hana_db_password_key_vault_url,
-            "hanaDbCredentialsMsiId": msi.id,
+            "hanaDbCredentialsMsiId": csi.id,
             "keyVaultId": key_vault_id,
         })
     else:
@@ -172,12 +172,12 @@ def delete_sapmonitor(cmd, client, resource_group_name, monitor_name):
 
         # Get CSI
         match = re.search(msi_id_format, sapmonitor.hana_db_credentials_msi_id)
-        msi_subscription_id = match.group(1)
-        msi_resource_group = match.group(2)
-        msi_resource_name = match.group(3)
+        csi_subscription_id = match.group(1)
+        csi_resource_group = match.group(2)
+        csi_resource_name = match.group(3)
 
-        msi_client = _msi_client_factory(cmd.cli_ctx, msi_subscription_id)
-        msi = msi_client.user_assigned_identities.get(msi_resource_group, msi_resource_name)
+        msi_client = _msi_client_factory(cmd.cli_ctx, csi_subscription_id)
+        msi = msi_client.user_assigned_identities.get(csi_resource_group, csi_resource_name)
 
         # Unassign CSI from KeyVault
         match = re.search(keyvault_id_format, sapmonitor.key_vault_id)
@@ -204,7 +204,7 @@ def delete_sapmonitor(cmd, client, resource_group_name, monitor_name):
                 properties=kv.properties))
 
         # Delete CSI
-        msi_client.user_assigned_identities.delete(msi_resource_group, msi_resource_name)
+        msi_client.user_assigned_identities.delete(csi_resource_group, csi_resource_name)
 
     return client.delete(resource_group_name, monitor_name)
 

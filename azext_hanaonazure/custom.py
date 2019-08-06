@@ -8,6 +8,7 @@
 import re
 
 keyvault_id_format = '/subscriptions/([\w\d-]+)/resourceGroups/([\w\d-]+)/providers/Microsoft.KeyVault/vaults/([\w\d-]+)'
+msi_id_format = '/subscriptions/([\w\d-]+)/resourcegroups/([\w\d-]+)/providers/Microsoft.ManagedIdentity/userAssignedIdentities/([\w\d-]+)'
 arm_resource_id_format = '/subscriptions/{}/resourceGroups/{}/providers/Microsoft.HanaOnAzure/sapMonitors/{}'
 
 def create_hanainstance(client, location, resource_group_name, instance_name, partner_node_id, ssh_public_key, os_computer_name, ip_address):
@@ -118,9 +119,8 @@ def create_sapmonitor(
 
         # Create MSI
         msi_client = _msi_client_factory(cmd.cli_ctx)
-        arm_resource_id = arm_resource_id_format.format(msi_client.config.subscription_id, resource_group_name, monitor_name)
-        sapmon_id = 'sapmon-csi-{}'.format(hash(arm_resource_id))
-        msi = msi_client.user_assigned_identities.create_or_update(resource_group_name, sapmon_id, region)
+        csi_name = get_csi_name(msi_client.config.subscription_id, resource_group_name, monitor_name)
+        csi = msi_client.user_assigned_identities.create_or_update(resource_group_name, csi_name, region)
 
         # Extract Key Vault information
         match = re.search(keyvault_id_format, key_vault_id)
@@ -137,22 +137,68 @@ def create_sapmonitor(
 
         # Add MSI to Key Vault
         secretPermissions = [SecretPermissions("get")]
-        accessPolicyEntries = [AccessPolicyEntry(tenant_id=kv.properties.tenant_id, object_id=msi.principal_id, permissions=Permissions(secrets=secretPermissions))]
+        accessPolicyEntries = [AccessPolicyEntry(tenant_id=kv.properties.tenant_id, object_id=csi.principal_id, permissions=Permissions(secrets=secretPermissions))]
         properties = VaultAccessPolicyProperties(access_policies=accessPolicyEntries)
-        kv_client = _keyvault_client_factory(cmd.cli_ctx, kv_subscription_id)
         kv_client.vaults.update_access_policy(kv_resource_group,kv_resource_name, 'add', properties)
 
         monitoring_details.update({
             "hanaDbPasswordKeyVaultUrl": hana_db_password_key_vault_url,
-            "hanaDbCredentialsMsiId": msi.id
+            "hanaDbCredentialsMsiId": csi.id,
+            "keyVaultId": key_vault_id,
         })
     else:
         raise ValueError("Either --hana-db-password or both --hana-db-password-key-vault-url and --key-vault-id.")
 
     return client.create(resource_group_name, monitor_name, monitoring_details)
 
-def delete_sapmonitor(client, resource_group_name, monitor_name):
+def delete_sapmonitor(cmd, client, resource_group_name, monitor_name):
+    sapmonitor = client.get(resource_group_name, monitor_name)
+    if sapmonitor.key_vault_id is not None and sapmonitor.hana_db_credentials_msi_id is not None:
+        # KeyVault ID found, unassigning CSI and deleting it
+        from ._client_factory import (_msi_client_factory, _keyvault_client_factory)
+        from azure.cli.core.profiles import ResourceType
+
+        # Get CSI
+        match = re.search(msi_id_format, sapmonitor.hana_db_credentials_msi_id)
+        csi_subscription_id = match.group(1)
+        csi_resource_group = match.group(2)
+        csi_resource_name = match.group(3)
+
+        msi_client = _msi_client_factory(cmd.cli_ctx, csi_subscription_id)
+        msi = msi_client.user_assigned_identities.get(csi_resource_group, csi_resource_name)
+
+        # Unassign CSI from KeyVault
+        match = re.search(keyvault_id_format, sapmonitor.key_vault_id)
+        if not match:
+            raise ValueError("key_vault_id is of incorrect format. The ID should start with /subscriptions/")
+
+        kv_subscription_id = match.group(1)
+        kv_resource_group = match.group(2)
+        kv_resource_name = match.group(3)
+        kv_client = _keyvault_client_factory(cmd.cli_ctx, kv_subscription_id)
+        kv = kv_client.vaults.get(kv_resource_group, kv_resource_name)
+
+        kv.properties.access_policies = [p for p in kv.properties.access_policies if
+                                    kv.properties.tenant_id.lower() != p.tenant_id.lower() or
+                                    msi.principal_id.lower() != p.object_id.lower()]
+
+        VaultCreateOrUpdateParameters = cmd.get_models('VaultCreateOrUpdateParameters', resource_type=ResourceType.MGMT_KEYVAULT)
+        kv_client.vaults.create_or_update(
+            resource_group_name=kv_resource_group,
+            vault_name=kv_resource_name,
+            parameters=VaultCreateOrUpdateParameters(
+                location=kv.location,
+                tags=kv.tags,
+                properties=kv.properties))
+
+        # Delete CSI
+        msi_client.user_assigned_identities.delete(csi_resource_group, csi_resource_name)
+
     return client.delete(resource_group_name, monitor_name)
+
+def get_csi_name(subscription_id, resource_group, resource_name):
+    arm_resource_id = arm_resource_id_format.format(subscription_id, resource_group, resource_name)
+    return 'sapmon-csi-{}'.format(hash(arm_resource_id))
 
 def hash(str):
     hval = 0x811c9dc5

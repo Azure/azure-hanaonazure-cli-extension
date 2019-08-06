@@ -493,6 +493,8 @@ class SapMonitor(Resource):
     :type hana_db_password_key_vault_url: str
     :param hana_db_credentials_msi_id: Key Vault ID containing that contains the HANA credentials.
     :type hana_db_credentials_msi_id: str
+    :param key_vault_id: Key Vault ID containing customer's HANA credentials.
+    :type key_vault_id: str
     :ivar provisioning_state: State of provisioning of the HanaInstance.
      Possible values include: 'Accepted', 'Creating', 'Updating', 'Failed',
      'Succeeded', 'Deleting', 'Migrating'
@@ -522,6 +524,7 @@ class SapMonitor(Resource):
         'hana_db_password': {'key': 'properties.hanaDbPassword', 'type': 'str'},
         'hana_db_password_key_vault_url': {'key': 'properties.hanaDbPasswordKeyVaultUrl', 'type': 'str'},
         'hana_db_credentials_msi_id': {'key': 'properties.hanaDbCredentialsMsiId', 'type': 'str'},
+        'key_vault_id': {'key': 'properties.keyVaultId', 'type': 'str'},
         'provisioning_state': {'key': 'properties.provisioningState', 'type': 'str'},
     }
 
@@ -535,6 +538,7 @@ class SapMonitor(Resource):
         self.hana_db_password = kwargs.get('hana_db_password', None)
         self.hana_db_password_key_vault_url = kwargs.get('hana_db_password_key_vault_url', None)
         self.hana_db_credentials_msi_id = kwargs.get('hana_db_credentials_msi_id', None)
+        self.key_vault_id = kwargs.get('key_vault_id', None)
         self.provisioning_state = None
 
 

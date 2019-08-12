@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.5.4 (2019-08-08)
+++++++++++++++++++
+
+- GET method for SapMonitor also returns LogAnalyticsWorkspace info
+
 0.5.3 (2019-08-01)
 ++++++++++++++++++
 

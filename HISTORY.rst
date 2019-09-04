@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.5.5 (2019-09-04)
+++++++++++++++++++
+
+- Added Update method for SapMonitor, which will allow adding tags
+
 0.5.4 (2019-08-08)
 ++++++++++++++++++
 

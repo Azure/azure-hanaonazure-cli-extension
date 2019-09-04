@@ -76,3 +76,7 @@ helps['sapmonitor delete'] = """
     type: command
     short-summary: Delete a SAP Monitor.
 """
+helps['sapmonitor update'] = """
+    type: command
+    short-summary: Updates the tags field of a SAP Monitor.
+"""

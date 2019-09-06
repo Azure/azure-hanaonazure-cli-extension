@@ -196,6 +196,9 @@ def delete_sapmonitor(cmd, client, resource_group_name, monitor_name):
 
     return client.delete(resource_group_name, monitor_name)
 
+def update_sapmonitor(client, resource_group_name, monitor_name, **kwargs):
+    return client.update(resource_group_name, monitor_name, kwargs['parameters'].tags)
+
 def get_csi_name(subscription_id, resource_group, resource_name):
     arm_resource_id = arm_resource_id_format.format(subscription_id, resource_group, resource_name)
     return 'sapmon-csi-{}'.format(hash(arm_resource_id))

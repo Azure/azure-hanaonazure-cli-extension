@@ -29,4 +29,6 @@ def load_command_table(self, _):
         g.custom_command('list', 'list_sapmonitor')
         g.custom_command('show', 'show_sapmonitor', exception_handler=empty_on_404)
         g.custom_command('create', 'create_sapmonitor')
+        g.generic_update_command('update', getter_name='show_sapmonitor', setter_name='update_sapmonitor',
+                                 command_type=custom_type, supports_no_wait=True)
         g.custom_command('delete', 'delete_sapmonitor')

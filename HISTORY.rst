@@ -3,7 +3,7 @@
 Release History
 ===============
 
-0.5.7 (2019-11-18)
+0.5.7 (2019-11-22)
 ++++++++++++++++++
 
 - Added disable_customer_analytics parameter to opt out of sending analytics information to Microsoft

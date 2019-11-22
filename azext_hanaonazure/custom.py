@@ -98,7 +98,8 @@ def create_sapmonitor(
         hana_db_name,
         hana_db_password=None,
         hana_db_password_key_vault_url=None,
-        key_vault_id=None):
+        key_vault_id=None,
+        disable_customer_analytics=False):
 
     monitoring_details = {
         "location": region,
@@ -106,7 +107,8 @@ def create_sapmonitor(
         "hanaHostname": hana_hostname,
         "hanaDbName": hana_db_name,
         "hanaDbSqlPort": hana_db_sql_port,
-        "hanaDbUsername": hana_db_username
+        "hanaDbUsername": hana_db_username,
+        "enableCustomerAnalytics": not disable_customer_analytics
     }
 
     if hana_db_password is not None:

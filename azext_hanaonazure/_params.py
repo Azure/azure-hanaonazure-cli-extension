@@ -47,3 +47,5 @@ def load_arguments(self, _):
             '--hana-db-password-key-vault-url', '--hdpkvu'], help="URL to the KeyVault secret that contains the HANA credentials")
         c.argument('key_vault_id', options_list=[
             '--key-vault-id', '--kvi'], help="Key Vault ID containing the HANA credentials")
+        c.argument('disable_customer_analytics', options_list=[
+            '--disable_customer_analytics', '--dca'], help="Disable sending analytics to Microsoft")

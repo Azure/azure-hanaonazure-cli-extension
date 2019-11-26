@@ -21,7 +21,7 @@ def _keyvault_client_factory(cli_ctx, subscription_id=None):
     from azure.cli.core.commands.client_factory import get_mgmt_service_client
     return get_mgmt_service_client(cli_ctx, KeyVaultManagementClient, subscription_id=subscription_id)
 
-def _loganalytics_client_factory(cli_ctx, subsription_id=None):
+def _loganalytics_client_factory(cli_ctx, subscription_id=None):
     from azure.mgmt.loganalytics import LogAnalyticsManagementClient
     from azure.cli.core.commands.client_factory import get_mgmt_service_client
     return get_mgmt_service_client(cli_ctx, LogAnalyticsManagementClient, subscription_id=subscription_id)

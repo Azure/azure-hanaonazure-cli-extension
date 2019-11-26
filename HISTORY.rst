@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.5.8 (2019-11-26)
+++++++++++++++++++
+
+- Added --log-analytics-workspace-arm-id to allow using existing log analytics workspace for SAP Monitor
+
 0.5.7 (2019-11-22)
 ++++++++++++++++++
 

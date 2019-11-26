@@ -168,8 +168,8 @@ def create_sapmonitor(
         loganalytics_resource_group = match.group(2)
         loganalytics_resource_name = match.group(3)
         workspaceClient = _loganalytics_client_factory(cmd.cli_ctx,loganalytics_subscription_id)
-        workspaceObj = workspaceClient.operations.get(loganalytics_resource_group, loganalytics_resource_name)
-        workspaceSharedkey = workspaceClient.operations.get_shared_keys(loganalytics_resource_group, loganalytics_resource_name)
+        workspaceObj = workspaceClient.workspaces.get(loganalytics_resource_group, loganalytics_resource_name)
+        workspaceSharedkey = workspaceClient.workspaces.get_shared_keys(loganalytics_resource_group, loganalytics_resource_name)
 
         monitoring_details.update({
             "logAnalyticsWorkspaceArmId": log_analytics_workspace_arm_id,

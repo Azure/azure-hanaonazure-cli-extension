@@ -150,32 +150,32 @@ def create_sapmonitor(
             "keyVaultId": key_vault_id
         })
 
-        # Retrieve the log analytics workspace ID and shared key
-        if log_analytics_workspace_arm_id is not None:
-            # Log analytics workspace arm ID has been provided
-            from ._client_factory import _loganalytics_client_factory
-            from azure.mgmt.loganalytics.log_analytics_management_client import LogAnalyticsManagementClient
-
-            # Extract Log analytics workspace information
-            match = re.search(loganalytics_arm_id_format, log_analytics_workspace_arm_id)
-            if not match:
-                raise ValueError("Log Analytics workspace ARM ID is of incorrect format. The format starts with /subscriptions")
-
-            loganalytics_subscription_id = match.group(1)
-            loganalytics_resource_group = match.group(2)
-            loganalytics_resource_name = match.group(3)
-            workspaceClient = _loganalytics_client_factory(cmd.cli_ctx,loganalytics_subscription_id)
-            workspaceObj = workspaceClient.get(loganalytics_resource_group, loganalytics_resource_name)
-            workspaceSharedkey = workspaceClient.get_shared_keys(loganalytics_resource_group, loganalytics_resource_name)
-
-            monitoring_details.update({
-                "logAnalyticsWorkspaceArmId": log_analytics_workspace_arm_id,
-                "logAnalyticsWorkspaceId": workspaceObj.customer_id,
-                "logAnalyticsWorkspaceSharedKey": workspaceSharedkey.primary_shared_key
-            })
-
     else:
         raise ValueError("Either --hana-db-password or both --hana-db-password-key-vault-url and --key-vault-id.")
+
+    # Retrieve the log analytics workspace ID and shared key
+    if log_analytics_workspace_arm_id is not None:
+        # Log analytics workspace arm ID has been provided
+        from ._client_factory import _loganalytics_client_factory
+        from azure.mgmt.loganalytics.log_analytics_management_client import LogAnalyticsManagementClient
+
+        # Extract Log analytics workspace information
+        match = re.search(loganalytics_arm_id_format, log_analytics_workspace_arm_id)
+        if not match:
+            raise ValueError("Log Analytics workspace ARM ID is of incorrect format. The format starts with /subscriptions")
+
+        loganalytics_subscription_id = match.group(1)
+        loganalytics_resource_group = match.group(2)
+        loganalytics_resource_name = match.group(3)
+        workspaceClient = _loganalytics_client_factory(cmd.cli_ctx,loganalytics_subscription_id)
+        workspaceObj = workspaceClient.get(loganalytics_resource_group, loganalytics_resource_name)
+        workspaceSharedkey = workspaceClient.get_shared_keys(loganalytics_resource_group, loganalytics_resource_name)
+
+        monitoring_details.update({
+            "logAnalyticsWorkspaceArmId": log_analytics_workspace_arm_id,
+            "logAnalyticsWorkspaceId": workspaceObj.customer_id,
+            "logAnalyticsWorkspaceSharedKey": workspaceSharedkey.primary_shared_key
+        })
 
     return client.create(resource_group_name, monitor_name, monitoring_details)
 

@@ -49,3 +49,5 @@ def load_arguments(self, _):
             '--key-vault-id', '--kvi'], help="Key Vault ID containing the HANA credentials")
         c.argument('disable_customer_analytics', options_list=[
             '--disable_customer_analytics', '--dca'], help="Disable sending analytics to Microsoft")
+        c.argument('log_analytics_workspace_arm_id', options_list=[
+            '--log-analytics-workspace-arm-id', '--lawsid'], help="Existing log analytics workspace id to use for log monitoring")

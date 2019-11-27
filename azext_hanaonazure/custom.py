@@ -10,6 +10,7 @@ import re
 keyvault_id_format = '/subscriptions/([\w\d-]+)/resourceGroups/([\w\d-]+)/providers/Microsoft.KeyVault/vaults/([\w\d-]+)'
 msi_id_format = '/subscriptions/([\w\d-]+)/resourcegroups/([\w\d-]+)/providers/Microsoft.ManagedIdentity/userAssignedIdentities/([\w\d-]+)'
 arm_resource_id_format = '/subscriptions/{}/resourceGroups/{}/providers/Microsoft.HanaOnAzure/sapMonitors/{}'
+loganalytics_arm_id_format = '/subscriptions/([\w\d-]+)/resourceGroups/([\w\d-]+)/providers/Microsoft.OperationalInsights/workspaces/([\w\d-]+)'
 
 def create_hanainstance(client, location, resource_group_name, instance_name, partner_node_id, ssh_public_key, os_computer_name, ip_address):
     try:
@@ -99,7 +100,8 @@ def create_sapmonitor(
         hana_db_password=None,
         hana_db_password_key_vault_url=None,
         key_vault_id=None,
-        disable_customer_analytics=False):
+        disable_customer_analytics=False,
+        log_analytics_workspace_arm_id=None):
 
     monitoring_details = {
         "location": region,
@@ -142,14 +144,38 @@ def create_sapmonitor(
         accessPolicyEntries = [AccessPolicyEntry(tenant_id=kv.properties.tenant_id, object_id=csi.principal_id, permissions=Permissions(secrets=secretPermissions))]
         properties = VaultAccessPolicyProperties(access_policies=accessPolicyEntries)
         kv_client.vaults.update_access_policy(kv_resource_group,kv_resource_name, 'add', properties)
-
         monitoring_details.update({
             "hanaDbPasswordKeyVaultUrl": hana_db_password_key_vault_url,
             "hanaDbCredentialsMsiId": csi.id,
-            "keyVaultId": key_vault_id,
+            "keyVaultId": key_vault_id
         })
+
     else:
         raise ValueError("Either --hana-db-password or both --hana-db-password-key-vault-url and --key-vault-id.")
+
+    # Retrieve the log analytics workspace ID and shared key
+    if log_analytics_workspace_arm_id is not None:
+        # Log analytics workspace arm ID has been provided
+        from ._client_factory import _loganalytics_client_factory
+        from azure.mgmt.loganalytics.log_analytics_management_client import LogAnalyticsManagementClient
+
+        # Extract Log analytics workspace information
+        match = re.search(loganalytics_arm_id_format, log_analytics_workspace_arm_id)
+        if not match:
+            raise ValueError("Log Analytics workspace ARM ID is of incorrect format. The format starts with /subscriptions")
+
+        loganalytics_subscription_id = match.group(1)
+        loganalytics_resource_group = match.group(2)
+        loganalytics_resource_name = match.group(3)
+        workspaceClient = _loganalytics_client_factory(cmd.cli_ctx,loganalytics_subscription_id)
+        workspaceObj = workspaceClient.workspaces.get(loganalytics_resource_group, loganalytics_resource_name)
+        workspaceSharedkey = workspaceClient.workspaces.get_shared_keys(loganalytics_resource_group, loganalytics_resource_name)
+
+        monitoring_details.update({
+            "logAnalyticsWorkspaceArmId": log_analytics_workspace_arm_id,
+            "logAnalyticsWorkspaceId": workspaceObj.customer_id,
+            "logAnalyticsWorkspaceSharedKey": workspaceSharedkey.primary_shared_key
+        })
 
     return client.create(resource_group_name, monitor_name, monitoring_details)
 

@@ -3,6 +3,12 @@
 Release History
 ===============
 
+0.5.9 (2020-02-14)
+++++++++++++++++++
+
+- Removed invalid SKUs: S224oxm, S224oxxm, S224o
+- Added SD-Flex SKUs
+
 0.5.8 (2019-11-26)
 ++++++++++++++++++
 

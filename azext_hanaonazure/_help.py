@@ -80,3 +80,23 @@ helps['sapmonitor update'] = """
     type: command
     short-summary: Updates the tags field of a SAP Monitor.
 """
+helps['sapmonitor provider-instance'] = """
+    type: group
+    short-summary: Manage the provider instance for the SAP Monitor.
+"""
+helps['sapmonitor provider-instance create'] = """
+    type: command
+    short-summary: Create a new provider instance for the SAP Monitor.
+"""
+helps['sapmonitor provider-instance delete'] = """
+    type: command
+    short-summary: Delete a provider instance from the SAP Monitor.
+"""
+helps['sapmonitor provider-instance list'] = """
+    type: command
+    short-summary: List provider instances for the SAP Monitor.
+"""
+helps['sapmonitor provider-instance show'] = """
+    type: command
+    short-summary: Get the details of a provider instance for the SAP Monitor.
+"""

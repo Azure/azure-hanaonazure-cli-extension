@@ -51,3 +51,12 @@ def load_arguments(self, _):
             '--disable_customer_analytics', '--dca'], help="Disable sending analytics to Microsoft")
         c.argument('log_analytics_workspace_arm_id', options_list=[
             '--log-analytics-workspace-arm-id', '--lawsid'], help="Existing log analytics workspace id to use for log monitoring")
+    with self.argument_context('sapmonitor provider-instance') as c:
+        c.argument('provider_instance_name', options_list=[
+            '--provider-instance-name'], help="The name of the provider instance.")
+        c.argument('provider_instance_properties', options_list=[
+            '--provider-instance-properties'], help="The properties of the provider instance (Should be of JSON format).")
+        c.argument('provider_instance_type', options_list=[
+            '--provider-instance-type'], help="The type of the provider instance.")
+        c.argument('provider_instance_metadata', options_list=[
+            '--provider-instance-metadata'], help="The metadata of the provider instance (Should be of JSON format).")

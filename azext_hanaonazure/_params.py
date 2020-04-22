@@ -27,7 +27,7 @@ def load_arguments(self, _):
     with self.argument_context('sapmonitor') as c:
         c.argument('resource_group_name', arg_type=resource_group_name_type)
         c.argument('monitor_name', options_list=[
-            '--monitor-name', '-n'], help="The name of the SAP monitor", id_part='name')
+            '--monitor-name', '-n'], help="The name of the SAP monitor")
     with self.argument_context('sapmonitor create') as c:
         c.argument('region', options_list=[
             '--region'], help="The region to create this SAP monitor on.")

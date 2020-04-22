@@ -3,6 +3,16 @@
 Release History
 ===============
 
+0.6.1 (2020-04-16)
+++++++++++++++++++
+
+- Added metadata field to provider instance
+
+0.6.0 (2020-04-15)
+++++++++++++++++++
+
+- Added Multi-Instance Multi-Provider Feature
+
 0.5.9 (2020-02-14)
 ++++++++++++++++++
 

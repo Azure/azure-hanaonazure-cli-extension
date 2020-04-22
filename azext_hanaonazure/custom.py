@@ -280,9 +280,16 @@ def create_providerinstance(
       monitor_name,
       provider_instance_name,
       provider_instance_type,
-      provider_instance_properties):
+      provider_instance_properties,
+      provider_instance_metadata=None):
     import json
     properties_json = json.loads(provider_instance_properties)
+
+    # Validate metadata is of JSON format if provided
+    metadata = None
+    if provider_instance_metadata is not None:
+       m = json.loads(provider_instance_metadata)
+       metadata = json.dumps(m)
 
     if provider_instance_type == 'SapHana':
         if 'hanaDbPasswordKeyVaultUrl' in properties_json and 'keyVaultId' in properties_json:
@@ -325,7 +332,7 @@ def create_providerinstance(
             raise ValueError("Either hanaDbPassword or both hanaDbPasswordKeyVaultUrl and keyVaultId.")
 
     from azext_hanaonazure.modules_sdk.v2020_02_07_preview.models import ProviderInstance
-    pi = ProviderInstance(provider_instance_type=provider_instance_type, properties=json.dumps(properties_json))
+    pi = ProviderInstance(provider_instance_type=provider_instance_type, properties=json.dumps(properties_json), metadata=metadata)
     return client.create(resource_group_name, monitor_name, provider_instance_name, pi)
 
 def delete_providerinstance(cmd, client, resource_group_name, monitor_name, provider_instance_name):

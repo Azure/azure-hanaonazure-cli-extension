@@ -301,11 +301,17 @@ def create_providerinstance(
             # Get the associated SapMonitor
             sapmonitor_client = cf_sapmonitor_groups(cmd.cli_ctx)
             sap_monitor = sapmonitor_client.get(resource_group_name, monitor_name)
+            managed_resource_group = sap_monitor.managed_resource_group_name
+            sapmonId = managed_resource_group.split("-")[2]
 
-            # Create MSI
+            # Get MSI
             msi_client = _msi_client_factory(cmd.cli_ctx)
-            csi_name = get_csi_name(msi_client.config.subscription_id, resource_group_name, monitor_name)
-            csi = msi_client.user_assigned_identities.create_or_update(resource_group_name, csi_name, sap_monitor.location)
+            msi_name = "sapmon-msi-" + sapmonId
+            msi = msi_client.user_assigned_identities.get(managed_resource_group, msi_name)
+
+            if msi == None:
+                # Create MSI
+                msi = msi_client.user_assigned_identities.create_or_update(managed_resource_group, msi_name, sap_monitor.location)
 
             # Extract Key Vault information
             match = re.search(keyvault_id_format, properties_json['keyVaultId'])
@@ -322,11 +328,11 @@ def create_providerinstance(
 
             # Add MSI to Key Vault
             secret_permissions = [SecretPermissions("get")]
-            access_policy_entries = [AccessPolicyEntry(tenant_id=kv.properties.tenant_id, object_id=csi.principal_id, permissions=Permissions(secrets=secret_permissions))]
+            access_policy_entries = [AccessPolicyEntry(tenant_id=kv.properties.tenant_id, object_id=msi.principal_id, permissions=Permissions(secrets=secret_permissions))]
             vault_access_policy_properties = VaultAccessPolicyProperties(access_policies=access_policy_entries)
             kv_client.vaults.update_access_policy(kv_resource_group,kv_resource_name, 'add', vault_access_policy_properties)
             properties_json.update({
-                "hanaDbCredentialsMsiId": csi.id,
+                "hanaDbCredentialsMsiId": msi.id,
             })
         elif 'hanaDbPassword' not in properties_json:
             raise ValueError("Either hanaDbPassword or both hanaDbPasswordKeyVaultUrl and keyVaultId.")

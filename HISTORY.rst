@@ -3,6 +3,12 @@
 Release History
 ===============
 
+0.6.2 (2020-05-18)
+++++++++++++++++++
+
+- Updated SDK
+- Create SapHana provider instance with Key Vault will reuse MSI instead of creating a new one
+
 0.6.1 (2020-04-16)
 ++++++++++++++++++
 

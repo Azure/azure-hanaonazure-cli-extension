@@ -8,6 +8,7 @@ Release History
 
 - Updated SDK
 - Create SapHana provider instance with Key Vault will reuse MSI instead of creating a new one
+- "Attempting old api version" message will be sent to logger debug rather than printing
 
 0.6.1 (2020-04-16)
 ++++++++++++++++++

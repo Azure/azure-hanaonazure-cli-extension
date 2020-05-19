@@ -9,6 +9,9 @@ import re
 from azext_hanaonazure.modules_sdk.v2020_02_07_preview import models
 from msrestazure.azure_exceptions import CloudError
 
+from knack.log import get_logger
+logger = get_logger(__name__)
+
 keyvault_id_format = '/subscriptions/([\w\d-]+)/resourceGroups/([\w\d-]+)/providers/Microsoft.KeyVault/vaults/([\w\d-]+)'
 msi_id_format = '/subscriptions/([\w\d-]+)/resourcegroups/([\w\d-]+)/providers/Microsoft.ManagedIdentity/userAssignedIdentities/([\w\d-]+)'
 arm_resource_id_format = '/subscriptions/{}/resourceGroups/{}/providers/Microsoft.HanaOnAzure/sapMonitors/{}'
@@ -87,7 +90,7 @@ def show_sapmonitor(cmd, client, resource_group_name, monitor_name):
     try:
         return client.get(resource_group_name, monitor_name)
     except (models.ErrorResponseException, CloudError) as error:
-        print('{0} Attempting old API version'.format(error))
+        logger.debug('{0} Attempting old API version'.format(error))
 
     # Use old version
     from azext_hanaonazure._client_factory import cf_sapmonitor_groups_v2017_11_03_preview
@@ -146,7 +149,7 @@ def create_sapmonitor(
     try:
         return client.create(resource_group_name, monitor_name, monitoring_details)
     except (models.ErrorResponseException, CloudError) as error:
-        print('{0} Attempting old API version'.format(error))
+        logger.debug('{0} Attempting old API version'.format(error))
 
     # Use old version
     monitoring_details.update({
@@ -206,7 +209,7 @@ def delete_sapmonitor(cmd, client, resource_group_name, monitor_name):
     try:
         return client.delete(resource_group_name, monitor_name)
     except (models.ErrorResponseException, CloudError) as error:
-        print('{0} Attempting old API version'.format(error))
+        logger.debug('{0} Attempting old API version'.format(error))
 
     # Use old version
     from azext_hanaonazure._client_factory import cf_sapmonitor_groups_v2017_11_03_preview
@@ -261,7 +264,7 @@ def update_sapmonitor(cmd, client, resource_group_name, monitor_name, **kwargs):
     try:
         return client.update(resource_group_name, monitor_name, kwargs['parameters'].tags)
     except (models.ErrorResponseException, CloudError) as error:
-        print('{0} Attempting old API version'.format(error))
+        logger.debug('{0} Attempting old API version'.format(error))
 
     from azext_hanaonazure._client_factory import cf_sapmonitor_groups_v2017_11_03_preview
     sapmonitor_client_v2017_11_03_preview = cf_sapmonitor_groups_v2017_11_03_preview(cmd.cli_ctx)

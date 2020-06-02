@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.6.3 (2020-06-02)
+++++++++++++++++++
+
+- Added tags field to SAP Monitor create
+
 0.6.2 (2020-05-18)
 ++++++++++++++++++
 

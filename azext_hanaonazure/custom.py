@@ -112,7 +112,8 @@ def create_sapmonitor(
         hana_db_password_key_vault_url=None,
         key_vault_id=None,
         disable_customer_analytics=False,
-        log_analytics_workspace_arm_id=None):
+        log_analytics_workspace_arm_id=None,
+        tags=None):
 
     monitoring_details = {}
 
@@ -142,7 +143,8 @@ def create_sapmonitor(
     monitoring_details.update({
         "location": region,
         "monitorSubnet": hana_subnet,
-        "enableCustomerAnalytics": not disable_customer_analytics
+        "enableCustomerAnalytics": not disable_customer_analytics,
+        "tags": tags
     })
 
     # Try creating using new API version

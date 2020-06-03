@@ -6,7 +6,8 @@
 # pylint: disable=line-too-long
 
 from azure.cli.core.commands.parameters import (resource_group_name_type,
-                                                get_location_type)
+                                                get_location_type,
+                                                tags_type)
 
 
 def load_arguments(self, _):
@@ -51,6 +52,7 @@ def load_arguments(self, _):
             '--disable_customer_analytics', '--dca'], help="Disable sending analytics to Microsoft")
         c.argument('log_analytics_workspace_arm_id', options_list=[
             '--log-analytics-workspace-arm-id', '--lawsid'], help="Existing log analytics workspace id to use for log monitoring")
+        c.argument('tags', tags_type)
     with self.argument_context('sapmonitor provider-instance') as c:
         c.argument('provider_instance_name', options_list=[
             '--provider-instance-name'], help="The name of the provider instance.")

@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.6.4 (2020-06-17)
+++++++++++++++++++
+
+- Create provider instance using Key Vault will no longer pass hanaDbCredentialsMsiId to the API request
+
 0.6.3 (2020-06-02)
 ++++++++++++++++++
 

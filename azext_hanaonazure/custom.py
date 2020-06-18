@@ -336,9 +336,6 @@ def create_providerinstance(
             access_policy_entries = [AccessPolicyEntry(tenant_id=kv.properties.tenant_id, object_id=msi.principal_id, permissions=Permissions(secrets=secret_permissions))]
             vault_access_policy_properties = VaultAccessPolicyProperties(access_policies=access_policy_entries)
             kv_client.vaults.update_access_policy(kv_resource_group,kv_resource_name, 'add', vault_access_policy_properties)
-            properties_json.update({
-                "hanaDbCredentialsMsiId": msi.id,
-            })
         elif 'hanaDbPassword' not in properties_json:
             raise ValueError("Either hanaDbPassword or both hanaDbPasswordKeyVaultUrl and keyVaultId.")
 

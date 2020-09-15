@@ -71,6 +71,12 @@ To start a specific HANA instance:
 az hanainstance start --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
 ```
 
+To restart a specific HANA instance:
+
+```
+az hanainstance restart --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
+```
+
 To shutdown a specific HANA instance:
 
 ```

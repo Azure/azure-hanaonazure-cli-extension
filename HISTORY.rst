@@ -3,6 +3,11 @@
 Release History
 ===============
 
+0.6.5 (2020-10-15)
+++++++++++++++++++
+
+- Removed usage of old API version (v2017-11-03-preview) for SapMonitor resources
+
 0.6.4 (2020-06-17)
 ++++++++++++++++++
 

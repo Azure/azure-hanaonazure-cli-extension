@@ -135,11 +135,11 @@ az sapmonitor provider-instance create \
 ```
 Here are examples of provider instance types and their properties
 
-| Provider Type                    | Provider Properties                                                                                                              |
-|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| SapHana                          | {"hanaHostname":"10.0.0.6","hanaDbName":"SYSTEMDB","hanaDbSqlPort":30013,"hanaDbUsername":"SYSTEM"," hanaDbPassword":"password"} |
-| PrometheusHaCluster/PrometheusOS | {"prometheusUrl":"http://10.0.0.21:9664/metrics"}                                                                                |
-| MsSqlServer                      | {"sqlHostname":"10.0.0.6","sqlPort":1433,"sqlUsername":"sqladmin","sqlPassword":"password"}                                      |
+| Provider Type                    | Provider Properties                                                                                                              | Required Metadata                                     |
+|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------| ----------------------------------------------------- |
+| SapHana                          | {"hanaHostname":"10.0.0.6","hanaDbName":"SYSTEMDB","hanaDbSqlPort":30013,"hanaDbUsername":"SYSTEM"," hanaDbPassword":"password"} | None                                                  |
+| PrometheusHaCluster/PrometheusOS | {"prometheusUrl":"http://10.0.0.21:9664/metrics"}                                                                                | {"sid":"HA1","hostname":"hdb1-0","clustername":"HA1"} |
+| MsSqlServer                      | {"sqlHostname":"10.0.0.6","sqlPort":1433,"sqlUsername":"sqladmin","sqlPassword":"password"}                                      | None                                                  |
 
 To list all provider instances for a SapMonitor:
 ```

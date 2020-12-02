@@ -139,7 +139,7 @@ Here are examples of provider instance types and their properties
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------------------| ----------------------------------------------------- |
 | SapHana                          | {"hanaHostname":"10.0.0.6","hanaDbName":"SYSTEMDB","hanaDbSqlPort":30013,"hanaDbUsername":"SYSTEM"," hanaDbPassword":"password"} | None                                                  |
 | PrometheusHaCluster              | {"prometheusUrl":"http://10.0.0.20:9664/metrics"}                                                                                | {"sid":"HA1","hostname":"hdb1-0","clustername":"HA1"} |
-| PrometheusOS                     | {"prometheusUrl":"http://10.0.0.21:9664/metrics"}                                                                                | None                                                  |
+| PrometheusOS                     | {"prometheusUrl":"http://10.0.0.21:9100/metrics"}                                                                                | None                                                  |
 | MsSqlServer                      | {"sqlHostname":"10.0.0.6","sqlPort":1433,"sqlUsername":"sqladmin","sqlPassword":"password"}                                      | {"sid":"HA1"}                                         |
 
 To list all provider instances for a SapMonitor:

@@ -34,8 +34,5 @@ def _loganalytics_client_factory(cli_ctx, subscription_id=None):
 def cf_sapmonitor_groups(cli_ctx, *_):
     return _hana_instance_client_factory(cli_ctx).sap_monitors
 
-def cf_sapmonitor_groups_v2017_11_03_preview(cli_ctx, *_):
-    return _hana_instance_client_factory_v2017_11_03_preview(cli_ctx).sap_monitors
-
 def cf_providerinstance_groups(cli_ctx, *_):
     return _hana_instance_client_factory(cli_ctx).provider_instances

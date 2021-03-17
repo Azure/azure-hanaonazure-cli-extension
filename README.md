@@ -5,11 +5,11 @@
 To install this extension just use the CLI extension add command:
 
 ```
-az extension add --source $LATEST_RELEASE
+az extension add --name sap-hana
 ```
 
 # Usage
-
+## HANA instance
 To create a new HANA instance:
 
 ```
@@ -83,6 +83,84 @@ To shutdown a specific HANA instance:
 az hanainstance shutdown --resource-group $RESOURCE_GROUP --instance-name $HANA_INSTANCE_NAME
 ```
 
+## SapMonitor
+To create a new SapMonitor:
+```
+az sapmonitor create \
+    --resource-group $RESOURCE_GROUP \
+    --monitor-name $SAP_MONITOR_NAME \
+    --hana-subnet $HANA_SUBNET_ID \
+    --region $REGION
+```
+Here is an example of a subnet ID:
+```
+/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Network/virtualNetworks/<vnet_name>/subnets/<subnet_name>
+```
+
+To list all SapMonitor for a subscription:
+```
+az sapmonitor list
+```
+
+To show details about a specific SapMonitor:
+```
+az sapmonitor show --resource-group $RESOURCE_GROUP --monitor-name $SAP_MONITOR_NAME
+```
+
+To add a key-value pair to the Tags field of a specific SapMonitor:
+```
+az sapmonitor update --resource-group $RESOURCE_GROUP --monitor-name $SAP_MONITOR_NAME --set tags.newKey=value
+```
+
+To delete all key-value pairs in the Tags field of a specific SapMonitor:
+```
+az sapmonitor update --resource-group $RESOURCE_GROUP --monitor-name $SAP_MONITOR_NAME --set tags={}
+```
+
+To delete a SapMonitor:
+```
+az sapmonitor delete --resource-group $RESOURCE_GROUP --monitor-name $SAP_MONITOR_NAME
+```
+
+## Provider Instance
+
+> :warning: Provider Instance commands cannot be executed in parallel
+
+To create a new provider instance on a SapMonitor:
+```
+az sapmonitor provider-instance create \
+    --resource-group $RESOURCE_GROUP \
+    --monitor-name $SAP_MONITOR_NAME \ 
+    --provider-instance-name $PROVIDER_INSTANCE_NAME \
+    --provider-instance-type $PROVIDER_INSTANCE_TYPE \
+    --provider-instance-properties $PROVIDER_INSTANCE_PROPERTIES \
+    --provider-instance-metadata $PROVIDER_INSTANCE_METADATA
+```
+Here are examples of provider instance types and their properties
+
+| Provider Type                    | Provider Properties                                                                                                                          | Required Metadata                                     |
+|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------            | ----------------------------------------------------- |
+| SapHana                          | {"hanaHostname":"10.0.0.6","hanaDbName":"SYSTEMDB","hanaDbSqlPort":30013,"hanaDbUsername":"SYSTEM"," hanaDbPassword":"password"}             | None                                                  |
+| PrometheusHaCluster              | {"prometheusUrl":"http://10.0.0.20:9664/metrics"}                                                                                            | {"sid":"HA1","hostname":"hdb1-0","clustername":"HA1"} |
+| PrometheusOS                     | {"prometheusUrl":"http://10.0.0.21:9100/metrics"}                                                                                            | None                                                  |
+| MsSqlServer                      | {"sqlHostname":"10.0.0.6","sqlPort":1433,"sqlUsername":"sqladmin","sqlPassword":"password"}                                                  | {"sid":"HA1"}                                         |
+| SapNetWeaver                     | {"sapHostName":"10.0.0.6","sapInstanceNr":"20"}<br>{"sapHostName":"netweaverapp","sapInstanceNr":"20"}<br>{"sapHostName":"netweaverapp","sapInstanceNr":"20","sapSubdomain":"fabrikam.contoso.com"} | {"sapSid":"HA1"}                                      |
+
+To list all provider instances for a SapMonitor:
+```
+az sapmonitor provider-instance list --resource-group $RESOURCE_GROUP --monitor-name $SAP_MONITOR_NAME
+```
+
+To show details about a specific provider instances for a SapMonitor:
+```
+az sapmonitor provider-instance show --resource-group $RESOURCE_GROUP --monitor-name $SAP_MONITOR_NAME --provider-instance-name $PROVIDER_INSTANCE_NAME
+```
+
+To delete a provider instances for a SapMonitor:
+```
+az sapmonitor provider-instance delete --resource-group $RESOURCE_GROUP --monitor-name $SAP_MONITOR_NAME --provider-instance-name $PROVIDER_INSTANCE_NAME
+```
+
 # Contributing
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a
@@ -96,3 +174,7 @@ provided by the bot. You will only need to do this once across all repos using o
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Trademarks 
+
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft's Trademark & Brand Guidelines. Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.

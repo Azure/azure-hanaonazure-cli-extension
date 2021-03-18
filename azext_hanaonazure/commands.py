@@ -34,6 +34,6 @@ def load_command_table(self, _):
 
     with self.command_group('sapmonitor provider-instance', client_factory=cf_providerinstance_groups) as g:
         g.custom_command('list', 'list_providerinstance')
-        g.custom_command('show', 'show_providerinstance', exception_handler=empty_on_404)
+        g.custom_show_command('show', 'show_providerinstance')
         g.custom_command('create', 'create_providerinstance')
         g.custom_command('delete', 'delete_providerinstance')

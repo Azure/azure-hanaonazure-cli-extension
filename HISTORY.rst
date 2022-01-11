@@ -3,6 +3,10 @@
 Release History
 ===============
 
+1.0.0 (2021-11-12)
+++++++++++++++++++
+- point list/update operations to new GA API version
+
 0.6.5 (2020-10-15)
 ++++++++++++++++++
 
